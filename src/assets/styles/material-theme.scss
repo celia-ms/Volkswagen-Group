@@ -1,0 +1,135 @@
+@use "sass:map";
+@use "~@angular/material" as mat;
+// My version of the dark and light background and foreground palettes
+// I copied the ones in the _palette.scss file (the Github repo link you posted)
+// and tweaked the values to my liking.
+@use "./vg-style" as vg;
+
+@include mat.core();
+
+mat.$theme-ignore-duplication-warnings: true;
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+/*PALETTES*/
+
+// Define a light palettes
+$mt-light-palette-primary: mat.define-palette(vg.$light-primary-color);
+$mt-light-palette-accent: mat.define-palette(vg.$light-accent-color);
+$mt-light-palette-warn: mat.define-palette(vg.$light-warn-color);
+
+// Define a dark palettes
+$mt-dark-palette-primary: mat.define-palette(vg.$light-primary-color);
+$mt-dark-palette-accent: mat.define-palette(vg.$light-accent-color);
+$mt-dark-palette-warn: mat.define-palette(vg.$light-warn-color);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+/*TYPOGRAPHY*/
+$mt-typography: mat.define-typography-config(
+  $font-family: "poppins",
+  /*One-off header, usually at the top of the page (e.g. a hero header).*/
+    $display-4:
+    mat.define-typography-level(112px, 112px, 300, $letter-spacing: -0.05em),
+  $display-3:
+    mat.define-typography-level(56px, 56px, 400, $letter-spacing: -0.02em),
+  $display-2:
+    mat.define-typography-level(45px, 48px, 400, $letter-spacing: -0.005em),
+  $display-1: mat.define-typography-level(34px, 40px, 400),
+  /*Section heading corresponding to the <h1> tag*/ $headline:
+    mat.define-typography-level(24px, 32px, 400),
+  /*Section heading corresponding to the <h2> tag*/ $title:
+    mat.define-typography-level(14px, 30px, 400),
+  /*Section heading corresponding to the <h3> tag*/ $subheading-2:
+    mat.define-typography-level(17px, 28px, 400),
+  /*Section heading corresponding to the <h4> tag*/ $subheading-1:
+    mat.define-typography-level(16px, 24px, 400),
+  /*Base body text*/ $body-1: mat.define-typography-level(14px, 24px, 400),
+  /*Bolder body text*/ $body-2: mat.define-typography-level(14px, 24px, 700),
+  /*Smaller body and hint text*/ $caption:
+    mat.define-typography-level(14px, 24px, 400),
+  /*Buttons and anchors*/ $button: mat.define-typography-level(14px, 24px, 400),
+  /*Form input fields*/ $input: mat.define-typography-level(14px, 1em, 400),
+);
+
+/*THEMES*/
+// Define a light theme
+$mt-light-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $mt-light-palette-primary,
+      accent: $mt-light-palette-accent,
+      warn: $mt-light-palette-warn,
+    ),
+    typography: $mt-typography,
+  )
+);
+
+// This function ALWAYS sets the background and foreground using _palette.scss
+// It will write over any background and foreground you set before it.
+$mt-dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $mt-dark-palette-primary,
+      accent: $mt-dark-palette-accent,
+      warn: $mt-dark-palette-warn,
+    ),
+    typography: $mt-typography,
+  )
+);
+
+// If we look at the result of this debug, we can see the map it created.
+// And the structure to copy when setting our background and foreground :)
+// Note: the properties are repeated. First inside the color property and then after it.
+// Weird, though there might be a reason. I tested and for now I think
+// only the ones under color are the necessary ones.
+@debug $mt-light-theme;
+@debug $mt-dark-theme;
+
+// Write over background and foreground with my versions.
+$mt-light-theme: map.set(
+  $mt-light-theme,
+  color,
+  background,
+  vg.$light-theme-background-palette
+);
+
+$mt-light-theme: map.set(
+  $mt-light-theme,
+  color,
+  foreground,
+  vg.$light-theme-foreground-palette
+);
+
+// Write over background and foreground with my versions.
+$mt-dark-theme: map.set(
+  $mt-dark-theme,
+  color,
+  background,
+  vg.$dark-theme-background-palette
+);
+
+$mt-dark-theme: map.set(
+  $mt-dark-theme,
+  color,
+  foreground,
+  vg.$dark-theme-foreground-palette
+);
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core($mt-typography);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+// @include mat.core-theme($mt-light-theme);
+@include mat.all-component-themes($mt-light-theme);
+
+// Apply the dark theme only when the `.dark-theme` CSS class is applied
+// to an ancestor element of the components (such as `body`).
+.dark-theme {
+  @include mat.all-component-themes($mt-dark-theme);
+}

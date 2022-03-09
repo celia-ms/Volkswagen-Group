@@ -1,0 +1,233 @@
+@use "sass:map";
+// Color palettes from the Material Design spec.
+// See https://material.io/design/color/
+
+/*FONT FAMILY*/
+@font-face {
+  font-family: "poppins";
+  src: url("/assets/fonts/poppins-regular-webfont.eot");
+  src: url("/assets/fonts/poppins-regular-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url("/assets/fonts/poppins-regular-webfont.woff") format("woff"),
+    url("/assets/fonts/poppins-regular-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*COLORS*/
+
+:root {
+  --primary: #13c1ac;
+  --black: #000000;
+  --blue: #00adee;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink: #e83e8c;
+  --red: #dc3545;
+  --orange: #fd7e14;
+  --yellow: #ffc107;
+  --green: #28a745;
+  --teal: #20c997;
+  --cyan: #17a2b8;
+  --white: #ffffff;
+  --gray: #c2c7ca;
+  --gray-dark: #424242;
+  /*LIGHT MODE*/
+  --light-bg: #f4f5f7;
+  /*DARK MODE*/
+  --dark-white: #d0d0d0;
+  --dark-light: #383737;
+  --dark-regular: #757575;
+  --dark-black: #201f1f;
+  --dark-bg: #303030;
+}
+
+$light: white;
+$light-04-opacity: rgba($light, 0.04);
+$light-12-opacity: rgba($light, 0.12);
+$light-30-opacity: rgba($light, 0.3);
+$light-50-opacity: rgba($light, 0.5);
+$light-70-opacity: rgba($light, 0.7);
+
+$dark: black;
+$dark-04-opacity: rgba($dark, 0.04);
+$dark-12-opacity: rgba($dark, 0.12);
+$dark-26-opacity: rgba($dark, 0.26);
+$dark-38-opacity: rgba($dark, 0.38);
+$dark-54-opacity: rgba($dark, 0.54);
+$dark-88-opacity: rgba($dark, 0.88);
+
+$light-primary-color: (
+  50: #fafafa,
+  100: #f5f5f5,
+  200: #eeeeee,
+  300: #e0e0e0,
+  400: #bdbdbd,
+  500: #9e9e9e,
+  600: #757575,
+  700: #616161,
+  800: #424242,
+  900: #212121,
+  A100: #ffffff,
+  A200: #eeeeee,
+  A400: #bdbdbd,
+  A700: #616161,
+  contrast: (
+    50: $dark-88-opacity,
+    100: $dark-88-opacity,
+    200: $dark-88-opacity,
+    300: $dark-88-opacity,
+    400: $dark-88-opacity,
+    500: $dark-88-opacity,
+    600: $light,
+    700: $light,
+    800: $light,
+    900: $light,
+    A100: $dark-88-opacity,
+    A200: $dark-88-opacity,
+    A400: $dark-88-opacity,
+    A700: $light,
+  ),
+);
+
+$light-accent-color: (
+  50: #fefeff,
+  100: #fcfdfe,
+  200: #fafbfd,
+  300: #f8f9fc,
+  400: #f7f8fc,
+  500: #f5f7fb,
+  600: #f4f6fa,
+  700: #f2f5fa,
+  800: #f0f3f9,
+  900: #eef1f8,
+  A100: #ffffff,
+  A200: #ffffff,
+  A400: #ffffff,
+  A700: #ffffff,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #000000,
+    900: #000000,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$light-warn-color: (
+  50: #fee8ed,
+  100: #fcc6d2,
+  200: #fba0b5,
+  300: #f97997,
+  400: #f75d80,
+  500: #f6406a,
+  600: #f53a62,
+  700: #f33257,
+  800: #f22a4d,
+  900: #ef1c3c,
+  A100: #ffffff,
+  A200: #fff1f2,
+  A400: #ffbec6,
+  A700: #ffa4b0,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+// Background palette for light themes.
+$light-theme-background-palette: (
+  status-bar: map.get($light-primary-color, 300),
+  app-bar: $light,
+  background: $light,
+  hover: $dark-04-opacity,
+  card: $light,
+  dialog: $light,
+  disabled-button: $dark-12-opacity,
+  raised-button: $light,
+  focused-button: $dark-12-opacity,
+  selected-button: map.get($light-primary-color, 300),
+  selected-disabled-button: map.get($light-primary-color, 400),
+  disabled-button-toggle: map.get($light-primary-color, 200),
+  unselected-chip: map.get($light-primary-color, 300),
+  disabled-list-option: map.get($light-primary-color, 200),
+  tooltip: map.get($light-primary-color, 700),
+);
+
+// Background palette for dark themes.
+$dark-theme-background-palette: (
+  status-bar: $dark,
+  app-bar: map.get($light-primary-color, 900),
+  background: var(--dark-bg),
+  hover: $light-04-opacity,
+  card: map.get($light-primary-color, 800),
+  dialog: var(--dark-black),
+  disabled-button: $light-12-opacity,
+  raised-button: map.get($light-primary-color, 800),
+  focused-button: $light-12-opacity,
+  selected-button: map.get($light-primary-color, 900),
+  selected-disabled-button: map.get($light-primary-color, 800),
+  disabled-button-toggle: $dark,
+  unselected-chip: map.get($light-primary-color, 700),
+  disabled-list-option: $dark,
+  tooltip: map.get($light-primary-color, 700),
+);
+
+// Foreground palette for light themes.
+$light-theme-foreground-palette: (
+  base: $dark,
+  divider: $dark-12-opacity,
+  dividers: $dark-12-opacity,
+  disabled: $dark-38-opacity,
+  disabled-button: $dark-26-opacity,
+  disabled-text: $dark-38-opacity,
+  elevation: $dark,
+  hint-text: $dark-38-opacity,
+  secondary-text: $dark-54-opacity,
+  icon: var(--dark-light),
+  icons: var(--dark-light),
+  text: var(--dark-light),
+  slider-min: $dark-88-opacity,
+  slider-off: $dark-26-opacity,
+  slider-off-active: $dark-38-opacity,
+);
+
+// Foreground palette for dark themes.
+$dark-theme-foreground-palette: (
+  base: var(--dark-white),
+  divider: $light-12-opacity,
+  dividers: $light-12-opacity,
+  disabled: $light-50-opacity,
+  disabled-button: $light-30-opacity,
+  disabled-text: $light-50-opacity,
+  elevation: $light-12-opacity,
+  hint-text: $light-50-opacity,
+  secondary-text: $light-70-opacity,
+  icon: var(--dark-white),
+  icons: var(--dark-white),
+  text: var(--dark-white),
+  slider-min: $light,
+  slider-off: $light-30-opacity,
+  slider-off-active: $light-30-opacity,
+);

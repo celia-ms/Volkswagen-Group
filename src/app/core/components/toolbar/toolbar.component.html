@@ -1,0 +1,22 @@
+<mat-toolbar>
+    <mat-toolbar-row class="d-flex align-items-center justify-content-between w-100">
+        <!-- <img src="assets/img/icon-logo.svg"> -->
+        <mat-icon svgIcon="icon-logo"></mat-icon>
+        <h1 class="py-1">{{"toolbar.display" | translate}}</h1>
+        <button mat-icon-button [disableRipple]="true" #menuTrigger="matMenuTrigger" [matMenuTriggerFor]="menu">
+            <mat-icon class="material-icons-outlined">settings</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" class="toolbar-menu">
+            <button mat-menu-item class="d-flex justify-content-between align-items-center" (click)="changeMode()">
+                <span>{{ isDark ? ('header.menu.mode.light' | translate) : ('header.menu.mode.dark' | translate) }}</span>
+                <mat-icon class="material-icons-outlined">format_color_fill</mat-icon>
+            </button>
+            <mat-button-toggle-group [(ngModel)]="selectedLanguage" (change)="changeLanguage()" name="language">
+                <mat-button-toggle *ngFor="let language of languages" [value]="language">
+                    <img src="{{language.icon}}">
+                    <span class="px-1">{{ language.display | translate }}</span>
+                </mat-button-toggle>
+            </mat-button-toggle-group>
+        </mat-menu>
+    </mat-toolbar-row>
+</mat-toolbar>

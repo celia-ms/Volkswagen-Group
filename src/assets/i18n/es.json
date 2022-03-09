@@ -1,0 +1,20 @@
+{
+    "toolbar": {
+        "display": "Group Volkswagen"
+    },
+    "languages": {
+        "es": "Español",
+        "en": "Inglés"
+    },
+    "header": {
+        "menu": {
+            "mode": {
+                "dark": "Modo oscuro",
+                "light": "Modo claro"
+            }
+        }
+    },
+    "footer": {
+        "project": "Proyecto creado por"
+    }
+}

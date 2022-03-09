@@ -1,0 +1,11 @@
+.dashboard-container {
+  // 86px = toolbar (64px) + footer (24px)
+  height: calc(100vh - 88px);
+  overflow: auto;
+}
+
+::ng-deep .dark-theme {
+  .dashboard-container {
+    background: var(--dark-bg) !important;
+  }
+}

@@ -1,0 +1,19 @@
+/* TOOLBAR */
+@import "../src/assets/styles/components/toolbar";
+
+/* MENU */
+@import "../src/assets/styles/components/menu";
+
+/* BUTTON */
+@import "../src/assets/styles/components/button";
+
+/* GENERAL */
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}

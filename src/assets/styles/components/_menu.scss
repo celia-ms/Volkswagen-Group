@@ -1,0 +1,15 @@
+.mat-menu-panel {
+  border-radius: 0 !important;
+  .mat-menu-content:not(:empty) {
+    padding: 0 !important;
+  }
+
+  .mat-menu-item .mat-icon {
+    margin: 0 0 0 16px;
+  }
+
+  .mat-button-toggle-group {
+    border-radius: unset;
+    border: none;
+  }
+}

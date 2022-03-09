@@ -1,0 +1,14 @@
+mat-toolbar-row {
+  border-bottom: 1px solid var(--gray);
+
+  h1 {
+    font-size: x-large !important;
+  }
+
+  .img,
+  .mat-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 42px;
+  }
+}

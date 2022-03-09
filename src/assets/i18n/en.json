@@ -1,0 +1,20 @@
+{
+    "toolbar": {
+        "display": "Volkswagen Group"
+    },
+    "languages": {
+        "es": "Spanish",
+        "en": "English"
+    },
+    "header": {
+        "menu": {
+            "mode": {
+                "dark": "Dark mode",
+                "light": "Light mode "
+            }
+        }
+    },
+    "footer": {
+        "project": "Project created by"
+    }
+}
