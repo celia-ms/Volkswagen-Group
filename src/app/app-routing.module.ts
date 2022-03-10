@@ -18,6 +18,12 @@ const routes: Routes = [
       ),
   },
   {
+    path: paths.car,
+    component: LayoutComponent,
+    loadChildren: () =>
+      import('./features/cars/cars.module').then((m) => m.CarsModule),
+  },
+  {
     path: '**',
     pathMatch: 'full',
     redirectTo: paths.dashboard,

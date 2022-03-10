@@ -1,6 +1,6 @@
-::ng-deep .dark-theme {
+.dark-theme {
   .footer-container {
-    background: var(--dark-bg) !important;
+    background: var(--dark-regular) !important;
     span,
     a {
       color: var(--white);

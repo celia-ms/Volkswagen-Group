@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { paths } from 'src/app/app-paths';
 import { brandMock } from 'src/app/core/mocks/brand.mock';
 import { Brand } from 'src/app/core/models/brand.model';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
   brands: Brand[] = brandMock;
@@ -14,9 +15,11 @@ export class DashboardComponent implements OnInit {
   rowHeight: string = '400px';
   gutterSize: string = '20px';
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {}
 
-  selectBrand(brand: Brand) {}
+  selectBrand(brand: Brand) {
+    this.router.navigate([paths.car, { brand_id: brand.id }]);
+  }
 }

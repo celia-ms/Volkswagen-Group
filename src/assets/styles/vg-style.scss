@@ -34,12 +34,13 @@
   --gray-dark: #424242;
   /*LIGHT MODE*/
   --light-bg: #f4f5f7;
+  --light-white: #d0d0d0;
+  --light-dark: #757575;
   /*DARK MODE*/
-  --dark-white: #d0d0d0;
-  --dark-light: #383737;
-  --dark-regular: #757575;
-  --dark-black: #201f1f;
   --dark-bg: #303030;
+  --dark-black: #201f1f;
+  --dark-light: #383737;
+  --dark-regular: #212121;
 }
 
 $light: white;
@@ -215,7 +216,7 @@ $light-theme-foreground-palette: (
 
 // Foreground palette for dark themes.
 $dark-theme-foreground-palette: (
-  base: var(--dark-white),
+  base: var(--light-white),
   divider: $light-12-opacity,
   dividers: $light-12-opacity,
   disabled: $light-50-opacity,
@@ -224,9 +225,9 @@ $dark-theme-foreground-palette: (
   elevation: $light-12-opacity,
   hint-text: $light-50-opacity,
   secondary-text: $light-70-opacity,
-  icon: var(--dark-white),
-  icons: var(--dark-white),
-  text: var(--dark-white),
+  icon: var(--light-white),
+  icons: var(--light-white),
+  text: var(--light-white),
   slider-min: $light,
   slider-off: $light-30-opacity,
   slider-off-active: $light-30-opacity,
