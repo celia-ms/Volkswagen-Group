@@ -5,6 +5,8 @@ import { environment } from 'src/environments/environment';
 
 import { Car } from 'src/app/core/models/car.model';
 import { paths } from 'src/app/app-paths';
+import { map } from 'rxjs/operators';
+import * as _ from 'lodash';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +20,7 @@ export class CarService {
     return this.http.get<Car[]>(this.URL);
   }
 
-  getCarById(id: number): Observable<Car> {
+  getCarById(id: number) {
     return this.http.get<Car>(`${this.URL}/${id}`);
   }
 
@@ -26,7 +28,7 @@ export class CarService {
     return this.http.post<Car>(this.URL, car);
   }
 
-  updateCar(id: number, car: Car): Observable<Car> {
+  updateCarById(id: number, car: Car): Observable<Car> {
     return this.http.put<Car>(`${this.URL}/${id}`, car);
   }
 

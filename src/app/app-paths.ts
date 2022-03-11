@@ -1,4 +1,5 @@
 export const paths = {
   dashboard: 'dashboard',
-  car: 'car',
+  car: 'cars',
+  id: ':id',
 };
