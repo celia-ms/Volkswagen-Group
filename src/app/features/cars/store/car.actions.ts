@@ -1,7 +1,10 @@
 import { createAction, props, union } from '@ngrx/store';
 import { Car } from 'src/app/core/models/car.model';
 
-export const getCars = createAction('[CAR] Get cars');
+export const getCars = createAction(
+  '[CAR] Get cars',
+  props<{ bradId: number }>()
+);
 
 export const getCarById = createAction(
   '[CAR] Get car by id',

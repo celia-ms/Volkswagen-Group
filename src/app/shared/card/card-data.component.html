@@ -1,0 +1,26 @@
+<mat-card>
+  <div class="position-relative">
+    <mat-card-title>{{item.model}}</mat-card-title>
+    <button mat-icon-button [disableRipple]="true" class="btn-more">
+      <mat-icon class="material-icons-outlined"> more_vert</mat-icon>
+    </button>
+  </div>
+  <div class="d-flex align-items-center justify-content-center">
+    <img mat-card-xl-image src="{{item.image}}">
+  </div>
+  <mat-card-subtitle class="pt-3">{{item.currency}}</mat-card-subtitle>
+  <div class="d-flex align-items-center justify-content-between pb-3">
+    <span>
+      <mat-icon svgIcon="icon-starter"></mat-icon> {{item.power}} cv
+    </span>
+    <span>
+      <mat-icon svgIcon="icon-oil"></mat-icon>
+      {{item.fuel}}
+    </span>
+    <mat-icon svgIcon="icon-car"></mat-icon>
+  </div>
+  <mat-divider inset></mat-divider>
+  <mat-card-content>
+    <p class="m-0">{{item.description}}</p>
+  </mat-card-content>
+</mat-card>

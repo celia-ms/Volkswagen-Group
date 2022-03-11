@@ -2,10 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-
 import { Car } from 'src/app/core/models/car.model';
 import { paths } from 'src/app/app-paths';
-import { map } from 'rxjs/operators';
 import * as _ from 'lodash';
 
 @Injectable({
@@ -16,8 +14,8 @@ export class CarService {
 
   constructor(private http: HttpClient) {}
 
-  getCars(): Observable<Car[]> {
-    return this.http.get<Car[]>(this.URL);
+  getCars(bradId: number): Observable<Car[]> {
+    return this.http.get<Car[]>(this.URL, { params: { brad_id: bradId } });
   }
 
   getCarById(id: number) {

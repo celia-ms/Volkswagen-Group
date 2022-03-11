@@ -1,5 +1,7 @@
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { paths } from 'src/app/app-paths';
 import { TranslationService } from '../../services/translation.service';
 
 @Component({
@@ -14,6 +16,7 @@ export class ToolbarComponent implements OnInit {
   isDark = false;
 
   constructor(
+    private router: Router,
     private overlayContainer: OverlayContainer,
     private translation: TranslationService
   ) {}
@@ -21,6 +24,10 @@ export class ToolbarComponent implements OnInit {
   ngOnInit(): void {
     this.languages = this.translation.getLanguages();
     this.selectedLanguage = this.translation.getDisplayLanguage();
+  }
+
+  navigateToHome() {
+    this.router.navigate([`${paths.dashboard}/`]);
   }
 
   changeLanguage() {

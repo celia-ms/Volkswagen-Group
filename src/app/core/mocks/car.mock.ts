@@ -43,6 +43,20 @@ export const TEST_CARS: Car[] = [
     weight: 1.45,
     image: 'c-model-arteon.png',
   },
+  {
+    id: 4,
+    brad_id: 3,
+    model: 'Ibiza',
+    description: 'Carrocería tipo berlina con portón con 5 puertas...',
+    price: 17.0,
+    power: 120,
+    fuel: 'Diesel',
+    length: 1.904,
+    width: 1.904,
+    height: 1.704,
+    weight: 1.9,
+    image: 'c-model-ibiza.png',
+  },
 ];
 
 export const TEST_CAR: Car = {

@@ -1,6 +1,6 @@
 <mat-toolbar>
     <mat-toolbar-row class="d-flex align-items-center justify-content-between w-100">
-        <mat-icon svgIcon="icon-logo"></mat-icon>
+        <mat-icon svgIcon="icon-logo" (click)="navigateToHome()"></mat-icon>
         <h1 class="py-1">{{"toolbar.display" | translate}}</h1>
         <button mat-icon-button [disableRipple]="true" #menuTrigger="matMenuTrigger" [matMenuTriggerFor]="menu">
             <mat-icon class="material-icons-outlined">settings</mat-icon>

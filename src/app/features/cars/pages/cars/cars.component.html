@@ -1,1 +1,7 @@
-<p>cars works!</p>
+<div class="dashboard-container h-100 d-flex align-items-center justify-content-center">
+    <mat-grid-list class="p-3 w-100" [rowHeight]="rowHeight" [cols]="columns" [gutterSize]="gutterSize">
+        <mat-grid-tile class="animate__animated animate__zoomIn" *ngFor="let car of cars">
+            <app-card-data [item]="car"></app-card-data>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

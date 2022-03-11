@@ -1,7 +1,7 @@
 <div class="dashboard-container h-100 d-flex align-items-center justify-content-center">
     <mat-grid-list class="p-3 w-100" [rowHeight]="rowHeight" [cols]="columns" [gutterSize]="gutterSize">
-        <mat-grid-tile class="animate__animated animate__zoomIn" *ngFor="let item of brands">
-            <app-card [item]="item" (selectClick)="selectBrand($event)"></app-card>
+        <mat-grid-tile class="animate__animated animate__zoomIn" *ngFor="let brand of brands">
+            <app-card-image [item]="brand" (selectClick)="navigateToCars($event)"></app-card-image>
         </mat-grid-tile>
     </mat-grid-list>
 </div>

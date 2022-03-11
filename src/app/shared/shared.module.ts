@@ -3,10 +3,10 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { MaterialModule } from '../material/material.module';
-import { CardComponent } from './card/card.component';
+import { CardDataComponent, CardImageComponent } from './card/card.component';
 
 @NgModule({
-  declarations: [CardComponent],
+  declarations: [CardImageComponent, CardDataComponent],
   imports: [
     CommonModule,
     MaterialModule,
@@ -14,6 +14,6 @@ import { CardComponent } from './card/card.component';
     FormsModule,
     ReactiveFormsModule,
   ],
-  exports: [CardComponent],
+  exports: [CardImageComponent, CardDataComponent],
 })
 export class SharedModule {}

@@ -19,6 +19,17 @@ export class AppComponent {
 
   loadCustomIcons() {
     this.registryIcon('icon-logo', '../assets/img/icon-logo.svg');
+    this.registryIcon('icon-fuel', '../assets/img/cars/features/icon-fuel.svg');
+    this.registryIcon(
+      'icon-speed',
+      '../assets/img/cars/features/icon-speed.svg'
+    );
+    this.registryIcon('icon-car', '../assets/img/cars/features/icon-car.svg');
+    this.registryIcon('icon-oil', '../assets/img/cars/features/icon-oil.svg');
+    this.registryIcon(
+      'icon-starter',
+      '../assets/img/cars/features/icon-starter.svg'
+    );
   }
 
   registryIcon(name: string, url: string) {

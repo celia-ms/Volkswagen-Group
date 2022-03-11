@@ -5,6 +5,49 @@ mat-card {
     margin: 0 !important;
   }
 
+  mat-card-title {
+    font-weight: bold;
+    font-size: 24px !important;
+  }
+
+  mat-card-subtitle {
+    font-weight: bold;
+    font-size: 18px !important;
+    margin-bottom: 6px !important;
+  }
+
+  mat-card-content {
+    p {
+      font-size: 14px !important;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+  }
+
+  mat-card-footer {
+    position: absolute;
+    font-weight: bold;
+    font-size: 14px !important;
+    bottom: 16px;
+    width: 100%;
+  }
+
+  .mat-card-title-group {
+    align-items: baseline;
+  }
+
+  .mat-divider-horizontal.mat-divider-inset {
+    padding: 6px !important;
+  }
+}
+
+app-card-image .mat-card {
+  width: 360px;
+  height: 360px;
+
   cursor: pointer;
 
   &:focus,
@@ -14,7 +57,7 @@ mat-card {
   }
 }
 
-app-card .mat-card {
-  width: 360px;
-  height: 360px;
+app-card-data .mat-card {
+  width: 280px;
+  height: 340px;
 }

@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {}
 
-  selectBrand(brand: Brand) {
+  navigateToCars(brand: Brand) {
     this.router.navigate([`${paths.car}/`, brand.id]);
   }
 }

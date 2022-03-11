@@ -22,8 +22,8 @@ export class CarEffects {
     return this.actions$.pipe(
       ofType(getCars),
       delay(2000),
-      exhaustMap(() =>
-        this.carService.getCars().pipe(
+      exhaustMap((action) =>
+        this.carService.getCars(action.bradId).pipe(
           switchMap((cars: Car[]) => [saveCars({ cars: cars })]),
           catchError(() => EMPTY)
         )

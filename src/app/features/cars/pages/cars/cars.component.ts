@@ -2,10 +2,11 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
+import { getCurrencyFormat } from 'src/app/core/helpers/currency.format.helpers';
 import { Car } from 'src/app/core/models/car.model';
 import { AppState } from 'src/app/core/store/app.state';
 import { clearCarState, getCars } from '../../store/car.actions';
-
+import * as _ from 'lodash';
 @Component({
   selector: 'app-car',
   templateUrl: './cars.component.html',
@@ -18,11 +19,23 @@ export class CarsComponent implements OnInit, OnDestroy {
   cars: Car[] = [];
   car: Car = new Car();
 
+  columns: number = 6;
+  rowHeight: string = '360px';
+  gutterSize: string = '20px';
+
   constructor(private store: Store<AppState>, private route: ActivatedRoute) {
     this.subscriptions.add(
       this.store.select('car').subscribe(({ cars, car }) => {
-        this.cars = cars;
-        this.car = car;
+        this.cars = _.map(cars, (car) => ({
+          ...car,
+          currency: getCurrencyFormat(car.price),
+          image: `assets/img/cars/${car.image}`,
+        }));
+        this.car = {
+          ...car,
+          currency: getCurrencyFormat(car.price),
+          image: `assets/img/cars/${car.image}`,
+        };
       })
     );
   }
@@ -33,7 +46,7 @@ export class CarsComponent implements OnInit, OnDestroy {
   }
 
   getCars() {
-    this.store.dispatch(getCars());
+    this.store.dispatch(getCars({ bradId: this.brandId }));
   }
 
   ngOnDestroy(): void {

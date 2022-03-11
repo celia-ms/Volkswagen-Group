@@ -1,10 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-card',
-  templateUrl: './card.component.html',
+  template: '',
 })
-export class CardComponent implements OnInit {
+export abstract class CardComponent {
   @Input('item') item!: any;
 
   @Output() selectClick = new EventEmitter();
@@ -15,5 +14,21 @@ export class CardComponent implements OnInit {
 
   constructor() {}
 
+  ngOnInit(): void {}
+}
+
+@Component({
+  selector: 'app-card-image',
+  templateUrl: './card-image.component.html',
+})
+export class CardImageComponent extends CardComponent implements OnInit {
+  ngOnInit(): void {}
+}
+
+@Component({
+  selector: 'app-card-data',
+  templateUrl: './card-data.component.html',
+})
+export class CardDataComponent extends CardComponent implements OnInit {
   ngOnInit(): void {}
 }
