@@ -5,6 +5,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CarsComponent } from './pages/cars/cars.component';
 import { CarsRoutingModule } from './cars-routing.module';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [CarsComponent],
@@ -14,6 +15,7 @@ import { CarsRoutingModule } from './cars-routing.module';
     TranslateModule,
     CarsRoutingModule,
     SharedModule,
+    InfiniteScrollModule,
   ],
 })
 export class CarsModule {}

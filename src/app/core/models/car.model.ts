@@ -11,5 +11,4 @@ export class Car {
   height!: number;
   weight!: number;
   image!: string;
-  currency?: string;
 }

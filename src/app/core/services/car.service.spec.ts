@@ -34,12 +34,29 @@ describe('CarService', () => {
   });
 
   describe('cars functions', () => {
-    const brandId = 1;
+    const filter = {
+      id: 1,
+      field: '',
+      search: '',
+      order: 'asc',
+    };
 
-    let carsFilterById = _.filter(TEST_CARS, (car) => car.brad_id === brandId);
+    const fields = [
+      'model',
+      'description',
+      'price',
+      'power',
+      'fuel',
+      'currency',
+    ];
+
+    let carsFilterById = _.filter(
+      TEST_CARS,
+      (car) => car.brad_id === filter.id
+    );
 
     beforeEach(() => {
-      carsFilterById = _.filter(TEST_CARS, (car) => car.brad_id === brandId);
+      carsFilterById = _.filter(TEST_CARS, (car) => car.brad_id === filter.id);
     });
 
     describe('getCars function', () => {
@@ -50,7 +67,7 @@ describe('CarService', () => {
       it('should return all cars with the brand id that passed to param', (done: DoneFn) => {
         httpClientSpy.get.and.returnValue(asyncData(carsFilterById));
 
-        service.getCars(brandId).subscribe({
+        service.getCars(filter, fields).subscribe({
           next: (response) => {
             expect(response).toEqual(carsFilterById);
             done();
@@ -61,7 +78,7 @@ describe('CarService', () => {
 
       it('should return an array length > 0 and length === 3', (done: DoneFn) => {
         httpClientSpy.get.and.returnValue(asyncData(carsFilterById));
-        service.getCars(brandId).subscribe({
+        service.getCars(filter, fields).subscribe({
           next: (response) => {
             expect(response.length).toBeGreaterThan(0);
             expect(response.length).toBe(3);
@@ -74,7 +91,7 @@ describe('CarService', () => {
       it('should return an array empty ([]) if the server not have cars', (done: DoneFn) => {
         httpClientSpy.get.and.returnValue(asyncData([]));
 
-        service.getCars(brandId).subscribe({
+        service.getCars(filter, fields).subscribe({
           next: (response) => {
             expect(response).toBeDefined([]);
             done();
@@ -86,7 +103,7 @@ describe('CarService', () => {
       it('should return an error when the server returns a 404', async () => {
         httpClientSpy.get.and.returnValue(asyncError(errorResponse));
 
-        await service.getCars(brandId).subscribe({
+        await service.getCars(filter, fields).subscribe({
           next: (response) => {
             fail('expected an error, not cars');
           },

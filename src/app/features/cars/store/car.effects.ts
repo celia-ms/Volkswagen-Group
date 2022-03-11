@@ -12,6 +12,7 @@ import {
   deleteCarById,
   saveCars,
   saveCar,
+  setIsLoadingCars,
 } from './car.actions';
 
 @Injectable()
@@ -21,10 +22,13 @@ export class CarEffects {
   getCars$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(getCars),
-      delay(2000),
+      delay(1000),
       exhaustMap((action) =>
-        this.carService.getCars(action.bradId).pipe(
-          switchMap((cars: Car[]) => [saveCars({ cars: cars })]),
+        this.carService.getCars(action.filter, action.fields).pipe(
+          switchMap((cars: Car[]) => [
+            saveCars({ cars: cars }),
+            setIsLoadingCars({ isLoadingCars: false }),
+          ]),
           catchError(() => EMPTY)
         )
       )

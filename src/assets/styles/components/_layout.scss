@@ -1,12 +1,28 @@
 .layout-container {
-  // 86px = toolbar (64px) + footer (24px)
-  height: calc(100vh - 88px);
-  overflow: auto;
   background: var(--light-bg) !important;
+  .dashboard-container {
+    // 86px = toolbar (64px) + footer (24px)
+    height: calc(100vh - 88px) !important;
+    overflow: auto !important;
+  }
+  #cars-container {
+    // 86px = toolbar (64px) + filter (58px) + footer (24px)
+    height: calc(100vh - 146px) !important;
+    overflow: auto !important;
+  }
+
+  .actions-container {
+    background: var(--white);
+    border-bottom: 1px solid var(--gray);
+  }
 }
 
 .dark-theme {
   .layout-container {
     background: var(--dark-bg) !important;
+  }
+
+  .actions-container {
+    background: var(--dark-black) !important;
   }
 }

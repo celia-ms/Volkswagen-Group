@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
+import { getCurrencyFormat } from 'src/app/core/helpers/currency.format.helpers';
+
 @Component({
   template: '',
 })
@@ -30,5 +32,9 @@ export class CardImageComponent extends CardComponent implements OnInit {
   templateUrl: './card-data.component.html',
 })
 export class CardDataComponent extends CardComponent implements OnInit {
-  ngOnInit(): void {}
+  currency: string = '';
+
+  ngOnInit(): void {
+    this.currency = getCurrencyFormat(this.item.price);
+  }
 }

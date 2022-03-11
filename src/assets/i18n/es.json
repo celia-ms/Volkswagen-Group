@@ -16,5 +16,38 @@
     },
     "footer": {
         "project": "Proyecto creado por"
+    },
+    "car": {
+        "more_cars": "Ver más coches",
+        "no_more_cars": "¡No hay más coches!",
+        "no_cars": {
+            "title": "Nada por aquí",
+            "description": "Parece que por el momento lo que buscas no se encuentra en Grupo Volkswagen."
+        }
+    },
+    "item": {
+        "title": {
+            "display": "Título"
+        },
+        "description": {
+            "display": "Descripción"
+        },
+        "price": {
+            "display": "Precio"
+        },
+        "power": {
+            "display": "Potencia"
+        },
+        "fuel": {
+            "display": "Combustible"
+        }
+    },
+    "filter": {
+        "search": {
+            "display": "Buscar..."
+        },
+        "order_by": {
+            "display": "Ordenar por..."
+        }
     }
 }

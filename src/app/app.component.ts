@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
+import { paths } from './app-paths';
 import { TranslationService } from './core/services/translation.service';
 
 @Component({
@@ -18,17 +19,14 @@ export class AppComponent {
   }
 
   loadCustomIcons() {
-    this.registryIcon('icon-logo', '../assets/img/icon-logo.svg');
-    this.registryIcon('icon-fuel', '../assets/img/cars/features/icon-fuel.svg');
-    this.registryIcon(
-      'icon-speed',
-      '../assets/img/cars/features/icon-speed.svg'
-    );
-    this.registryIcon('icon-car', '../assets/img/cars/features/icon-car.svg');
-    this.registryIcon('icon-oil', '../assets/img/cars/features/icon-oil.svg');
+    this.registryIcon('icon-logo', `${paths.images}/icon-logo.svg`);
+    this.registryIcon('icon-fuel', `${paths.image_features}/icon-fuel.svg`);
+    this.registryIcon('icon-speed', `${paths.image_features}/icon-speed.svg`);
+    this.registryIcon('icon-car', `${paths.image_features}/icon-car.svg`);
+    this.registryIcon('icon-oil', `${paths.image_features}/icon-oil.svg`);
     this.registryIcon(
       'icon-starter',
-      '../assets/img/cars/features/icon-starter.svg'
+      `${paths.image_features}/icon-starter.svg`
     );
   }
 

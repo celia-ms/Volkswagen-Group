@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject } from 'rxjs';
+import { paths } from 'src/app/app-paths';
 
 @Injectable({
   providedIn: 'root',
@@ -10,12 +11,12 @@ export class TranslationService {
     {
       display: 'languages.es',
       abbreviation: 'es',
-      icon: 'assets/img/flags/es.png',
+      icon: `${paths.image_flags}/es.png`,
     },
     {
       display: 'languages.en',
       abbreviation: 'en',
-      icon: 'assets/img/flags/en.png',
+      icon: `${paths.image_flags}/en.png`,
     },
   ];
 

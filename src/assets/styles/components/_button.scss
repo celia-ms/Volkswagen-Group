@@ -1,3 +1,8 @@
+@mixin vg-color {
+  background: var(--black);
+  color: var(--white);
+}
+
 .mat-icon-button {
   .mat-icon {
     line-height: 1 !important;
@@ -8,4 +13,38 @@
     top: -16px;
     right: -16px;
   }
+}
+
+.mat-flat-button {
+  @include vg-color;
+  padding: 2px 20px !important;
+  border-radius: 20px !important;
+}
+
+.mat-fab {
+  position: fixed !important;
+  bottom: 20px;
+  right: 40px;
+  z-index: 3;
+  &.mat-accent {
+    @include vg-color;
+  }
+}
+
+.mat-icon-button {
+  .mat-button-focus-overlay {
+    display: none;
+  }
+
+  .mat-icon {
+    line-height: 1 !important;
+  }
+}
+
+.mat-button-focus-overlay {
+  background-color: transparent !important;
+}
+
+.dark-theme .mat-fab.mat-accent {
+  background: var(--dark-regular) !important;
 }

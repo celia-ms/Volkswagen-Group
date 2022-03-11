@@ -7,16 +7,19 @@ import {
   saveCar,
   clearCarState,
   deleteCarById,
+  setIsLoadingCars,
 } from './car.actions';
 
 export interface CarState {
   cars: Car[];
   car: Car;
+  isLoadingCars: boolean;
 }
 
 export const initialState: CarState = {
   cars: [],
   car: new Car(),
+  isLoadingCars: false,
 };
 
 const _carReducer = createReducer(
@@ -24,6 +27,7 @@ const _carReducer = createReducer(
   on(getCars, (state) => {
     return {
       ...state,
+      isLoadingCars: true,
     };
   }),
   on(getCarById, (state) => {
@@ -52,6 +56,12 @@ const _carReducer = createReducer(
   on(clearCarState, () => {
     return {
       ...initialState,
+    };
+  }),
+  on(setIsLoadingCars, (state, { isLoadingCars }) => {
+    return {
+      ...state,
+      isLoadingCars: isLoadingCars,
     };
   })
 );

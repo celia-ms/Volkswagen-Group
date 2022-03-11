@@ -16,5 +16,38 @@
     },
     "footer": {
         "project": "Project created by"
+    },
+    "car": {
+        "more_cars": "See more cars",
+        "no_more_cars": "No more cars!",
+        "no_cars": {
+            "title": "Nothing around here",
+            "description": "It seems that what you are looking for is not found on Volkswagen Group at the moment."
+        }
+    },
+    "item": {
+        "model": {
+            "display": "Model"
+        },
+        "description": {
+            "display": "Description"
+        },
+        "price": {
+            "display": "Price"
+        },
+        "power": {
+            "display": "Power"
+        },
+        "fuel": {
+            "display": "fuel"
+        }
+    },
+    "filter": {
+        "search": {
+            "display": "Search..."
+        },
+        "order_by": {
+            "display": "Order by..."
+        }
     }
 }

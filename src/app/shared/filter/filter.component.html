@@ -1,0 +1,27 @@
+<div class="filter-container d-flex">
+    <mat-form-field appearance="fill" class="field-search">
+        <input matInput [(ngModel)]="filter.search" placeholder="{{'filter.search.display' | translate}}" (keyup)="onKeyup()"
+            (keydown.enter)="onKeydown($event)">
+        <div class="icon-container">
+            <mat-icon matSuffix *ngIf="filter.search && filter.search.length > 0" class="material-icons-outlined" (click)=searchClear()>clear
+            </mat-icon>
+        </div>
+        <div class="mx-2 icon-container">
+            <mat-icon matSuffix class="material-icons-outlined" (click)="searchChange()">search</mat-icon>
+        </div>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="field-sort">
+        <mat-select [(ngModel)]="filter.field" placeholder="{{'filter.order_by.display' | translate}}" (selectionChange)="sortChange()"
+            name="field.value">
+            <mat-option *ngFor="let field of fields" [value]="field.value">
+                <span>{{ field.display | translate }}</span>
+            </mat-option>
+        </mat-select>
+        <div class="icon-container">
+            <mat-icon matSuffix *ngIf="filter.field" class="material-icons-outlined" (click)=sortClear($event)>clear</mat-icon>
+        </div>
+        <div class="mx-2 icon-container">
+            <mat-icon matSuffix class="material-icons-outlined" (click)=orderChange($event)>{{isOrderAsc ? 'north' : 'south'}}</mat-icon>
+        </div>
+    </mat-form-field>
+</div>

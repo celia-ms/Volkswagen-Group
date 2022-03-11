@@ -1,0 +1,11 @@
+.mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: var(--dark-black) !important;
+}
+
+.dark-theme {
+  .mat-progress-spinner circle,
+  .mat-spinner circle {
+    stroke: var(--light-white) !important;
+  }
+}

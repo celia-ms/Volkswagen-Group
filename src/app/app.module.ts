@@ -8,6 +8,7 @@ import { CoreModule } from './core/core.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { paths } from './app-paths';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,7 +22,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
       loader: {
         provide: TranslateLoader,
         useFactory: (http: HttpClient) => {
-          return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
+          return new TranslateHttpLoader(http, paths.i18n, '.json');
         },
         deps: [HttpClient],
       },

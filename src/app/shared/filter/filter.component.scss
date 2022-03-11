@@ -1,0 +1,11 @@
+.filter-container {
+  flex-direction: row;
+  .field-search {
+    width: 75%;
+    padding-right: 6px;
+    padding-bottom: 0;
+  }
+  .field-sort {
+    width: 25%;
+  }
+}
