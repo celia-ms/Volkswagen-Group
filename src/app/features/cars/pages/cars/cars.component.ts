@@ -36,6 +36,7 @@ export class CarsComponent implements OnInit, OnDestroy {
 
   isScroll: boolean = false;
   isLoading: boolean = false;
+  isLoadingMore: boolean = false;
   isUpward: boolean = false;
 
   scrollHeight: number = 260;
@@ -51,7 +52,7 @@ export class CarsComponent implements OnInit, OnDestroy {
     order: 'asc',
   };
 
-  fieldsSearch = ['model', 'description', 'price', 'power', 'fuel', 'currency'];
+  fieldsSearch = ['model', 'description', 'price', 'power', 'fuel'];
   fieldsSort = [
     {
       display: 'item.model.display',
@@ -124,15 +125,15 @@ export class CarsComponent implements OnInit, OnDestroy {
   loadCars() {
     this.isScroll = true;
     if (this.cars.length > this.MAX_ITEM_PAGE && this.end < this.maxItems) {
-      // this.isLoading = true;
+      this.isLoadingMore = true;
       setTimeout(() => {
         if (this.actualPage < this.finishPage) {
           this.actualPage++;
           this.end += this.MAX_ITEM_PAGE;
-          if (this.end === this.maxItems)
+          if (this.end >= this.maxItems)
             this.snackBarService.success('car.no_more_cars');
         }
-        // this.isLoading = false;
+        this.isLoadingMore = false;
       }, 1200);
     }
   }

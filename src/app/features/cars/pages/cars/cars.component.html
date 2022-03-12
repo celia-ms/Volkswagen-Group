@@ -7,7 +7,7 @@
     [infiniteScrollThrottle]="throttle" (scrolled)="loadCars()" [scrollWindow]="false" (scroll)="onScroll($event)">
     <div *ngIf="cars.length > 0 && !isLoading">
         <mat-grid-list class="p-3 w-100" [rowHeight]="rowHeight" [cols]="columns" [gutterSize]="gutterSize">
-            <mat-grid-tile class="animate__animated animate__zoomIn" *ngFor="let car of cars">
+            <mat-grid-tile class="animate__animated animate__zoomIn" *ngFor="let car of cars | slice:start:end">
                 <app-card-data [item]="car"></app-card-data>
             </mat-grid-tile>
         </mat-grid-list>
@@ -19,7 +19,8 @@
             <mat-icon class="material-icons-outlined">arrow_upward</mat-icon>
         </button>
     </div>
-    <div *ngIf="isLoading" class="p-4 d-flex align-items-center justify-content-center h-100 w-100 animate__animated animate__zoomIn">
+    <div *ngIf="isLoading || isLoadingMore" [ngClass]="{'h-100':isLoading}"
+        class="p-4 d-flex align-items-center justify-content-center w-100 animate__animated animate__zoomIn">
         <mat-spinner></mat-spinner>
     </div>
     <app-message *ngIf="cars.length === 0 && !isLoading" [message]="message">

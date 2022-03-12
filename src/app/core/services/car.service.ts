@@ -17,13 +17,19 @@ export class CarService {
   constructor(private http: HttpClient) {}
 
   getCars(filter: Filter, fields: string[]): Observable<Car[]> {
-    return this.http.get<Car[]>(this.URL, {
-      params: {
-        brad_id: filter.id,
-        _sort: filter.field,
-        _order: filter.order,
-      },
-    });
+    return this.http
+      .get<Car[]>(this.URL, {
+        params: {
+          brad_id: filter.id,
+          _sort: filter.field,
+          _order: filter.order,
+        },
+      })
+      .pipe(
+        map((cars) => {
+          return this.searchCars(cars, filter.search, fields);
+        })
+      );
   }
 
   getCarById(id: number) {
