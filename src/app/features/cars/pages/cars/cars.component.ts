@@ -5,24 +5,33 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Store } from '@ngrx/store';
+import { ActivatedRoute, Router } from '@angular/router';
+import { select, Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { Car } from 'src/app/core/models/car.model';
 import { AppState } from 'src/app/core/store/app.state';
-import { clearCarState, getCars } from '../../store/car.actions';
+import {
+  clearCarState,
+  deleteCarById,
+  getCarById,
+  getCars,
+} from '../../store/car.actions';
 import * as _ from 'lodash';
 import { Filter } from 'src/app/core/models/filter.model';
 import { SnackBarService } from 'src/app/core/services/snackbar.service';
 import { paths } from 'src/app/app-paths';
 import { brandMock } from 'src/app/core/mocks/brand.mock';
 import { Brand } from 'src/app/core/models/brand.model';
+import * as carSelector from 'src/app/features/cars/store/car.selector';
+import { actions } from 'src/app/constants/constants';
 @Component({
   selector: 'app-car',
   templateUrl: './cars.component.html',
 })
 export class CarsComponent implements OnInit, OnDestroy {
   readonly MAX_ITEM_PAGE = 12;
+
+  actions: typeof actions = actions;
 
   subscriptions = new Subscription();
 
@@ -93,30 +102,31 @@ export class CarsComponent implements OnInit, OnDestroy {
   };
 
   constructor(
+    private router: Router,
     private snackBarService: SnackBarService,
     private store: Store<AppState>,
     private route: ActivatedRoute
   ) {
     this.subscriptions.add(
-      this.store.select('car').subscribe(({ cars, car, isLoadingCars }) => {
-        this.cars = _.cloneDeep(
-          _.map(cars, (car) => ({
-            ...car,
-            image: `${paths.image_cars}/${car.image}`,
-          }))
-        );
-        this.car = {
+      this.store.pipe(select(carSelector.getCars)).subscribe((cars) => {
+        this.cars = _.map(cars, (car) => ({
           ...car,
           image: `${paths.image_cars}/${car.image}`,
-        };
-
-        this.isLoading = isLoadingCars;
+        }));
 
         if (this.cars && this.cars.length > 0) {
           this.finishPage = Math.ceil(this.cars.length / this.MAX_ITEM_PAGE);
           this.maxItems = this.cars.length;
         }
       })
+    );
+
+    this.subscriptions.add(
+      this.store
+        .pipe(select(carSelector.getIsLoadingCars))
+        .subscribe((isLoadingCars) => {
+          this.isLoading = isLoadingCars;
+        })
     );
   }
 
@@ -158,16 +168,35 @@ export class CarsComponent implements OnInit, OnDestroy {
   }
 
   brandChange() {
+    this.router.navigate([`${paths.car}/`, this.filter.id]);
     this.isScroll = false;
     this.end = this.MAX_ITEM_PAGE;
+    this.finishPage = 0;
+    this.actualPage = 1;
+    this.maxItems = 0;
+
+    this.start = 0;
     this.getCars();
   }
 
-  openDialog() {
-    this.dialogCar.open();
+  showCar(id: number) {
+    this.openDialog(actions.SHOW);
+    this.store.dispatch(getCarById({ id: id }));
   }
 
-  closeDialog() {}
+  editCar(id: number) {
+    this.openDialog(actions.EDIT);
+    this.store.dispatch(getCarById({ id: id }));
+  }
+
+  deleteCar(id: number) {
+    this.store.dispatch(deleteCarById({ id: id }));
+    this.getCars();
+  }
+
+  openDialog(action: number) {
+    this.dialogCar.open(action);
+  }
 
   @HostListener('scroll', ['$event'])
   onScroll(event: Event) {

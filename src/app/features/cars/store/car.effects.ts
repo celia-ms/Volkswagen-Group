@@ -4,6 +4,7 @@ import { EMPTY } from 'rxjs';
 import { catchError, exhaustMap, map, switchMap, delay } from 'rxjs/operators';
 import { Car } from 'src/app/core/models/car.model';
 import { CarService } from 'src/app/core/services/car.service';
+import { SnackBarService } from 'src/app/core/services/snackbar.service';
 import {
   getCars,
   getCarById,
@@ -17,7 +18,11 @@ import {
 
 @Injectable()
 export class CarEffects {
-  constructor(private actions$: Actions, private carService: CarService) {}
+  constructor(
+    private snackBarService: SnackBarService,
+    private actions$: Actions,
+    private carService: CarService
+  ) {}
 
   getCars$ = createEffect(() => {
     return this.actions$.pipe(
@@ -29,7 +34,10 @@ export class CarEffects {
             saveCars({ cars: cars }),
             setIsLoadingCars({ isLoadingCars: false }),
           ]),
-          catchError(() => EMPTY)
+          catchError(() => {
+            this.snackBarService.error('service.error.getCars');
+            return EMPTY;
+          })
         )
       )
     );
@@ -41,7 +49,10 @@ export class CarEffects {
       exhaustMap((action) =>
         this.carService.getCarById(action.id).pipe(
           map((car: Car) => saveCar({ car: car })),
-          catchError(() => EMPTY)
+          catchError(() => {
+            this.snackBarService.error('service.error.getCarById');
+            return EMPTY;
+          })
         )
       )
     );
@@ -52,8 +63,14 @@ export class CarEffects {
       ofType(createCar),
       exhaustMap((action) =>
         this.carService.createCar(action.car).pipe(
-          map((car: Car) => saveCar({ car: car })),
-          catchError(() => EMPTY)
+          map((car: Car) => {
+            this.snackBarService.success('service.success.createCar');
+            return saveCar({ car: car });
+          }),
+          catchError(() => {
+            this.snackBarService.error('service.error.createCar');
+            return EMPTY;
+          })
         )
       )
     );
@@ -64,8 +81,14 @@ export class CarEffects {
       ofType(updateCarById),
       exhaustMap((action) =>
         this.carService.updateCarById(action.id, action.car).pipe(
-          map((car: Car) => saveCar({ car: car })),
-          catchError(() => EMPTY)
+          map((car: Car) => {
+            this.snackBarService.success('service.success.updateCarById');
+            return saveCar({ car: car });
+          }),
+          catchError(() => {
+            this.snackBarService.error('service.error.updateCarById');
+            return EMPTY;
+          })
         )
       )
     );
@@ -76,8 +99,14 @@ export class CarEffects {
       ofType(deleteCarById),
       exhaustMap((action) =>
         this.carService.deleteCarById(action.id).pipe(
-          map(() => saveCar({ car: new Car() })),
-          catchError(() => EMPTY)
+          map(() => {
+            this.snackBarService.success('service.success.deleteCarById');
+            return saveCar({ car: new Car() });
+          }),
+          catchError(() => {
+            this.snackBarService.error('service.error.updateCarById');
+            return EMPTY;
+          })
         )
       )
     );

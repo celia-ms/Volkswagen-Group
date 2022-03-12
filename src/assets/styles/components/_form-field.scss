@@ -63,43 +63,20 @@
   .mat-form-field-infix {
     line-height: 17px;
   }
+
+  .mat-input-element:disabled,
+  .mat-select-disabled .mat-select-value,
+  .mat-form-field-type-mat-native-select.mat-form-field-disabled
+    .mat-form-field-infix::after {
+    color: var(--dark-light) !important;
+  }
 }
 
-// .mat-form-field ::ng-deep .mat-form-field-outline-start,
-// .mat-form-field ::ng-deep .mat-form-field-outline-gap,
-// .mat-form-field ::ng-deep .mat-form-field-outline-end {
-//   color: red;
-//   border-width: 1px !important;
-//   background: blue;
-// }
-
-// .mat-form-field ::ng-deep .mat-form-field-outline-gap:focus {
-//   color: green;
-//   background: blue;
-// }
-
-.mat-form-field-appearance-outline .mat-form-field-outline-gap:hover,
-.mat-form-field-appearance-outline
-  .mat-form-field-outline-thick
-  .mat-form-field-outline-gap:hover,
-.mat-form-field-appearance-outline .mat-form-field-outline-gap:focus,
-.mat-form-field-appearance-outline
-  .mat-form-field-outline-thick
-  .mat-form-field-outline-gap:focus {
-  // border-radius: 0.000001px;
-  // border: 1px solid currentColor;
-  // border-left-style: none;
-  // border-right-style: none;
-  // border-top-style: none !important;
-  background: pink;
-  border: none;
-  // visibility: hidden;
-}
-
-// .mat-form-field-appearance-outline .mat-form-field-outline-gap:focus,
-// .mat-form-field-appearance-outline .mat-form-field-outline-gap:hover {
-//   background: green;
-//   border: 1px solid currentColor;
+// .mat-form-field-appearance-outline .mat-form-field-outline-gap,
+// .mat-form-field-appearance-outline
+//   .mat-form-field-outline-thick
+//   .mat-form-field-outline-gap {
+//   border: none;
 // }
 
 .dark-theme {
@@ -110,5 +87,13 @@
   input.mat-input-element,
   .mat-select-arrow {
     color: var(--light-white) !important;
+  }
+  .mat-form-field-appearance-outline {
+    .mat-input-element:disabled,
+    .mat-select-disabled .mat-select-value,
+    .mat-form-field-type-mat-native-select.mat-form-field-disabled
+      .mat-form-field-infix::after {
+      color: var(--light-white) !important;
+    }
   }
 }

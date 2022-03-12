@@ -1,9 +1,23 @@
 <mat-card>
   <div class="position-relative">
     <mat-card-title>{{item.model}}</mat-card-title>
-    <button mat-icon-button [disableRipple]="true" class="btn-more">
+    <button mat-icon-button [disableRipple]="true" class="btn-more" [matMenuTriggerFor]="menuCar">
       <mat-icon class="material-icons-outlined"> more_vert</mat-icon>
     </button>
+    <mat-menu #menuCar="matMenu">
+      <button mat-menu-item class="d-flex justify-content-between align-items-center" (click)="show()">
+        <span>{{'card.menu.show' | translate}}</span>
+        <mat-icon class="material-icons-outlined">visibility</mat-icon>
+      </button>
+      <button mat-menu-item class="d-flex justify-content-between align-items-center" (click)="edit()">
+        <span>{{'card.menu.edit' | translate}}</span>
+        <mat-icon class="material-icons-outlined">edit</mat-icon>
+      </button>
+      <button mat-menu-item class="d-flex justify-content-between align-items-center" (click)="delete()">
+        <span>{{'card.menu.delete' | translate}}</span>
+        <mat-icon class="material-icons-outlined">delete</mat-icon>
+      </button>
+    </mat-menu>
   </div>
   <div class="d-flex align-items-center justify-content-center">
     <img mat-card-xl-image src="{{item.image}}">

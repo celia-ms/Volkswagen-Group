@@ -93,5 +93,27 @@
             "save": "Guardar",
             "cancel": "Cancelar"
         }
+    },
+    "card": {
+        "menu": {
+            "show": "Ver",
+            "edit": "Editar",
+            "delete": "Eliminar",
+            "new": "Crear"
+        }
+    },
+    "service": {
+        "success": {
+            "createCar": "¡Nuevo coche creado con exito!",
+            "updateCarById": "¡Coche actualizado con exito!",
+            "deleteCarById": "¡Coche eliminado con exito!"
+        },
+        "error": {
+            "getCars": "Error getCars() al obtener los coches",
+            "getCarById": "Error getCarById() al obtener el coche",
+            "createCar": "Error createCar() al crear un nuevo coche",
+            "updateCarById": "Error updateCarById al actualizar coche",
+            "deleteCarById": "Error deleteCarById al eliminar coche"
+        }
     }
 }

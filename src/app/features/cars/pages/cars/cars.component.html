@@ -9,7 +9,7 @@
             </mat-option>
         </mat-select>
     </mat-form-field>
-    <button mat-flat-button (click)="openDialog();">
+    <button mat-flat-button (click)="openDialog(actions.NEW);">
         <mat-icon class="material-icons-outlined">add</mat-icon>
         {{"car.add" | translate}}
     </button>
@@ -20,7 +20,8 @@
     <div *ngIf="cars.length > 0 && !isLoading">
         <mat-grid-list class="p-3 w-100" [rowHeight]="rowHeight" [cols]="columns" [gutterSize]="gutterSize">
             <mat-grid-tile class="animate__animated animate__zoomIn" *ngFor="let car of cars | slice:start:end">
-                <app-card-data [item]="car"></app-card-data>
+                <app-card-data [item]="car" (showClick)="showCar($event)" (editClick)="editCar($event)" (deleteClick)="deleteCar($event)">
+                </app-card-data>
             </mat-grid-tile>
         </mat-grid-list>
         <div *ngIf="!isScroll && !isLoading && cars.length > MAX_ITEM_PAGE" class="p-4 text-center animate__animated animate__zoomIn">
@@ -39,4 +40,4 @@
     </app-message>
 </div>
 
-<app-dialog-car #dialogCar (closeClick)="closeDialog()"></app-dialog-car>
+<app-dialog-car #dialogCar (confirmClick)="getCars()"></app-dialog-car>

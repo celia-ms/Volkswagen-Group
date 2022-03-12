@@ -93,5 +93,27 @@
             "save": "Save",
             "cancel": "Cancel"
         }
+    },
+    "card": {
+        "menu": {
+            "show": "Show",
+            "edit": "Edit",
+            "delete": "Delete",
+            "new": "New"
+        }
+    },
+    "service": {
+        "success": {
+            "createCar": "New car creating success!",
+            "updateCarById": "Car updating success!",
+            "deleteCarById": "Car deleting success!"
+        },
+        "error": {
+            "getCars": "Error getCars() getting cars",
+            "getCarById": "Error getCarById() getting car",
+            "createCar": "Error createCar() creating new car",
+            "updateCarById": "Error updateCarById updating car",
+            "deleteCarById": "Error deleteCarById deleting car"
+        }
     }
 }

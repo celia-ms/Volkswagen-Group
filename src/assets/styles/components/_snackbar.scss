@@ -1,11 +1,14 @@
 .snackbar-success {
-  background: var(--green);
+  background: var(--green) !important;
+  color: var(--white) !important;
 }
 
 .snackbar-error {
-  background: var(--red);
+  background: var(--red) !important;
+  color: var(--white) !important;
 }
 
 .snackbar-warning {
-  background: var(--orange);
+  background: var(--orange) !important;
+  color: var(--white) !important;
 }

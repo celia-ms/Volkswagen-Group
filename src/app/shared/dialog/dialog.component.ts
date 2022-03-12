@@ -24,9 +24,9 @@ export class DialogComponent {
     showConfirmButton: false,
   };
 
-  @Output() closeClick = new EventEmitter<string>();
-  @Output() cancelclick = new EventEmitter<string>();
-  @Output() confirmclick = new EventEmitter<string>();
+  @Output() closeClick = new EventEmitter();
+  @Output() cancelClick = new EventEmitter();
+  @Output() confirmClick = new EventEmitter();
 
   constructor(public matDialog: MatDialog) {}
 
@@ -39,12 +39,15 @@ export class DialogComponent {
   }
 
   cancel() {
-    this.cancelclick.emit();
+    this.cancelClick.emit();
     this.dialogRef.close();
   }
 
   confirm() {
-    this.confirmclick.emit();
+    this.confirmClick.emit();
+  }
+
+  success() {
     this.dialogRef.close();
   }
 

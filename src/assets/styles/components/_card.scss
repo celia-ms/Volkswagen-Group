@@ -1,3 +1,11 @@
+@mixin line-clamp($l-clap) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box !important;
+  -webkit-line-clamp: $l-clap;
+  -webkit-box-orient: vertical;
+}
+
 mat-card {
   img {
     width: 80% !important;
@@ -8,6 +16,8 @@ mat-card {
   mat-card-title {
     font-weight: bold;
     font-size: 24px !important;
+    line-height: 28px;
+    @include line-clamp(1);
   }
 
   mat-card-subtitle {
@@ -19,11 +29,7 @@ mat-card {
   mat-card-content {
     p {
       font-size: 14px !important;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
+      @include line-clamp(3);
     }
   }
 

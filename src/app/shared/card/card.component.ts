@@ -32,9 +32,25 @@ export class CardImageComponent extends CardComponent implements OnInit {
   templateUrl: './card-data.component.html',
 })
 export class CardDataComponent extends CardComponent implements OnInit {
+  @Output() showClick = new EventEmitter();
+  @Output() editClick = new EventEmitter();
+  @Output() deleteClick = new EventEmitter();
+
   currency: string = '';
 
   ngOnInit(): void {
     this.currency = getCurrencyFormat(this.item.price);
+  }
+
+  show() {
+    this.showClick.emit(this.item.id);
+  }
+
+  edit() {
+    this.editClick.emit(this.item.id);
+  }
+
+  delete() {
+    this.deleteClick.emit(this.item.id);
   }
 }
