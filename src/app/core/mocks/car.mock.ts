@@ -90,7 +90,7 @@ export const TEST_UPDATE_CAR: Car = {
 };
 
 export const TEST_CREATE_CAR: Car = {
-  id: 10,
+  id: 5,
   brad_id: 3,
   model: 'Leon',
   description: 'Carrocería tipo berlina con portón con 5 puertas...',
@@ -102,4 +102,19 @@ export const TEST_CREATE_CAR: Car = {
   height: 1.504,
   weight: 1.85,
   image: 'c-model-leon.png',
+};
+
+export const TEST_DELETE_CAR: Car = {
+  id: 3,
+  brad_id: 1,
+  model: 'Arteon',
+  description: 'Carrocería tipo berlina con portón con 5 puertas...',
+  price: 54.0,
+  power: 239,
+  fuel: 'Diesel',
+  length: 4.862,
+  width: 1.871,
+  height: 1.45,
+  weight: 1.45,
+  image: 'c-model-arteon.png',
 };
