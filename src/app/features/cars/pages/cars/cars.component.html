@@ -1,7 +1,7 @@
 <div class="actions-container d-flex align-items-center justify-content-between w-100 px-3 py-2">
     <app-filter class="w-100 ms-2 me-2" [fields]="fieldsSort" (searchChangeClick)="searchCars($event)" (sortChangeClick)="sortCars($event)">
     </app-filter>
-    <mat-form-field appearance="fill" class="me-2">
+    <mat-form-field appearance="fill" class="me-5">
         <mat-select [(ngModel)]="filter.id" placeholder="{{'brand.change' | translate}}" (selectionChange)="brandChange()" name="brand.id">
             <mat-option *ngFor="let brand of brands" [value]="brand.id">
                 <img class="me-2" src="{{brand.image}}">

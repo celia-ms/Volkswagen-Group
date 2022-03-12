@@ -22,9 +22,9 @@ export class DialogCarComponent implements OnInit {
   dialogConfig: DialogConfig = {
     title: 'car.dialog.display',
     width: '40vw',
-    height: '40vh',
-    showCancelButton: false,
-    showConfirmButton: false,
+    height: '60vh',
+    showCancelButton: true,
+    showConfirmButton: true,
   };
 
   constructor() {}

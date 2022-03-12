@@ -8,9 +8,10 @@ import { CarsRoutingModule } from './cars-routing.module';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { DialogCarComponent } from './components/dialog-car/dialog-car.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormCarComponent } from './components/form-car/form-car.component';
 
 @NgModule({
-  declarations: [CarsComponent, DialogCarComponent],
+  declarations: [CarsComponent, DialogCarComponent, FormCarComponent],
   imports: [
     CommonModule,
     MaterialModule,

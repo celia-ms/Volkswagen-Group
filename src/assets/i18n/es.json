@@ -29,20 +29,51 @@
         },
         "add": "Añadir coche",
         "fields": {
-            "title": {
-                "display": "Título"
+            "model": {
+                "display": "Modelo",
+                "placeholder": "Introduzca el modelo",
+                "error": {
+                    "required": "El modelo es obligatorio"
+                }
             },
             "description": {
-                "display": "Descripción"
+                "display": "Descripción",
+                "placeholder": "Introduzca la descripción",
+                "error": {
+                    "required": "La descripción es obligatoria"
+                }
             },
             "price": {
-                "display": "Precio"
+                "display": "Precio",
+                "placeholder": "Introduzca el precio",
+                "error": {
+                    "required": "El precio es obligatorio"
+                }
             },
             "power": {
-                "display": "Potencia"
+                "display": "Potencia",
+                "placeholder": "Introduzca la potencia",
+                "error": {
+                    "required": "La potencia es obligatoria"
+                }
             },
             "fuel": {
-                "display": "Combustible"
+                "display": "Combustible",
+                "types": {
+                    "diesel": "Diesel",
+                    "gasoline": "Gasolina"
+                },
+                "placeholder": "Seleccione el tipo de combustible...",
+                "error": {
+                    "required": "El tipo de combustible es obligatorio"
+                }
+            },
+            "brand": {
+                "display": "Marcha",
+                "placeholder": "Selecciona una marca...",
+                "error": {
+                    "required": "La marca es obligatorio"
+                }
             }
         },
         "dialog": {
@@ -55,6 +86,12 @@
         },
         "order_by": {
             "display": "Ordenar por..."
+        }
+    },
+    "dialog": {
+        "buttons": {
+            "save": "Guardar",
+            "cancel": "Cancelar"
         }
     }
 }

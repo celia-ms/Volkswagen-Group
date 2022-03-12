@@ -20,6 +20,10 @@
   padding: 2px 20px !important;
   border-radius: 20px !important;
 
+  &.mat-accent {
+    background: var(--light-dark) !important;
+  }
+
   span.mat-button-wrapper {
     display: flex;
     justify-content: center;
@@ -51,6 +55,16 @@
   background-color: transparent !important;
 }
 
-.dark-theme .mat-fab.mat-accent {
-  background: var(--dark-regular) !important;
+.dark-theme {
+  .mat-flat-button,
+  .mat-fab.mat-accent {
+    background: var(--light-white) !important;
+    color: var(--black) !important;
+    .mat-icon {
+      color: var(--black) !important;
+    }
+    &.mat-accent {
+      background: var(--light-dark) !important;
+    }
+  }
 }

@@ -18,7 +18,7 @@
         "project": "Project created by"
     },
     "brand": {
-        "change": "Select a brand"
+        "change": "Select a brand..."
     },
     "car": {
         "more_cars": "See more cars",
@@ -30,19 +30,50 @@
         "add": "Add car",
         "fields": {
             "model": {
-                "display": "Model"
+                "display": "Model",
+                "placeholder": "Enter the model",
+                "error": {
+                    "required": "The model is required"
+                }
             },
             "description": {
-                "display": "Description"
+                "display": "Description",
+                "placeholder": "Enter the description",
+                "error": {
+                    "required": "The description is required"
+                }
             },
             "price": {
-                "display": "Price"
+                "display": "Price",
+                "placeholder": "Enter the price",
+                "error": {
+                    "required": "The price is required"
+                }
             },
             "power": {
-                "display": "Power"
+                "display": "Power",
+                "placeholder": "Enter the power",
+                "error": {
+                    "required": "The power is required"
+                }
             },
             "fuel": {
-                "display": "fuel"
+                "display": "Fuel",
+                "types": {
+                    "diesel": "diesel",
+                    "gasoline": "Gasoline"
+                },
+                "placeholder": "Select fuel type...",
+                "error": {
+                    "required": "The fuel type is required"
+                }
+            },
+            "brand": {
+                "display": "Brand",
+                "placeholder": "Select a brand...",
+                "error": {
+                    "required": "The brand is required"
+                }
             }
         },
         "dialog": {
@@ -55,6 +86,12 @@
         },
         "order_by": {
             "display": "Order by..."
+        }
+    },
+    "dialog": {
+        "buttons": {
+            "save": "Save",
+            "cancel": "Cancel"
         }
     }
 }

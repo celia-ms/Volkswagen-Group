@@ -1,0 +1,61 @@
+<form [formGroup]="carForm" class="d-flex flex-column" autocomplete="off">
+    <div class="d-flex align-items-center justify-content-between pb-4">
+        <div class="pe-4 py-4">
+            <img src="{{image}}">
+        </div>
+        <div>
+            <div class="row pb-5">
+                <!-- car.fields.model.display / placeholder / error -->
+                <mat-form-field appearance="outline" class="col-6">
+                    <mat-label>{{ "car.fields.model.display" | translate }}</mat-label>
+                    <input matInput placeholder="{{ 'car.fields.model.placeholder' | translate }}" [formControlName]="'model'" required />
+                    <mat-error *ngIf="carForm.controls.model.invalid">{{ "car.fields.model.error.required" | translate }}
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="col-6">
+                    <mat-select [formControlName]="'brand'" name="brand.id">
+                        <mat-option *ngFor="let brand of brands" [value]="brand.id">
+                            <img class="me-2" src="{{brand.image}}">
+                            <span>{{ brand.name}}</span>
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="carForm.controls.brand.invalid">{{ "car.fields.brand.error.required" | translate }}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="row pb-2">
+                <mat-form-field appearance="outline" class="col-4">
+                    <mat-label>{{ "car.fields.price.display" | translate }}</mat-label>
+                    <input matInput placeholder="{{ 'car.fields.price.placeholder' | translate }}" [formControlName]="'price'" required />
+                    <mat-error *ngIf="carForm.controls.model.invalid">{{ "car.fields.price.error.required" | translate }}
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="col-4">
+                    <mat-label>{{ "car.fields.power.display" | translate }}</mat-label>
+                    <input matInput placeholder="{{ 'car.fields.power.placeholder' | translate }}" [formControlName]="'power'" required />
+                    <mat-error *ngIf="carForm.controls.model.invalid">{{ "car.fields.power.error.required" | translate }}
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="col-4">
+                    <mat-select [formControlName]="'fuel'" name="fuelType.value">
+                        <mat-option *ngFor="let fuelType of fuelTypes" [value]="fuelType.value">
+                            <span>{{ fuelType.value | translate}}</span>
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="carForm.controls.model.invalid">{{ "car.fields.fuel.error.required" | translate }}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <mat-form-field appearance="outline">
+            <mat-label>{{ "car.fields.description.display" | translate }}</mat-label>
+            <textarea matInput placeholder="{{ 'car.fields.description.placeholder' | translate }}" cdkTextareaAutosize cdkAutosizeMinRows="8"
+                cdkAutosizeMaxRows="8" [formControlName]="'description'" required>
+    </textarea>
+            <mat-error *ngIf="carForm.controls.model.invalid">{{ "car.fields.description.error.required" | translate }}
+            </mat-error>
+        </mat-form-field>
+    </div>
+</form>
