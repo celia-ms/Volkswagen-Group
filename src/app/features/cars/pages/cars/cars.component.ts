@@ -1,4 +1,10 @@
-import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  HostListener,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
@@ -9,6 +15,8 @@ import * as _ from 'lodash';
 import { Filter } from 'src/app/core/models/filter.model';
 import { SnackBarService } from 'src/app/core/services/snackbar.service';
 import { paths } from 'src/app/app-paths';
+import { brandMock } from 'src/app/core/mocks/brand.mock';
+import { Brand } from 'src/app/core/models/brand.model';
 @Component({
   selector: 'app-car',
   templateUrl: './cars.component.html',
@@ -18,7 +26,7 @@ export class CarsComponent implements OnInit, OnDestroy {
 
   subscriptions = new Subscription();
 
-  brandId: number = 0;
+  @ViewChild('dialogCar', { static: true }) dialogCar: any;
 
   cars: Car[] = [];
   car: Car = new Car();
@@ -45,6 +53,8 @@ export class CarsComponent implements OnInit, OnDestroy {
   scrollDistance = 1;
   scrollUpDistance = 2;
 
+  brands: Brand[] = brandMock;
+
   filter: Filter = {
     id: 0,
     field: '',
@@ -55,23 +65,23 @@ export class CarsComponent implements OnInit, OnDestroy {
   fieldsSearch = ['model', 'description', 'price', 'power', 'fuel'];
   fieldsSort = [
     {
-      display: 'item.model.display',
+      display: 'car.fields.model.display',
       value: 'model',
     },
     {
-      display: 'item.description.display',
+      display: 'car.fields.description.display',
       value: 'description',
     },
     {
-      display: 'item.price.display',
+      display: 'car.fields.price.display',
       value: 'price',
     },
     {
-      display: 'item.power.display',
+      display: 'car.fields.power.display',
       value: 'power',
     },
     {
-      display: 'item.fuel.display',
+      display: 'car.fields.fuel.display',
       value: 'fuel',
     },
   ];
@@ -111,12 +121,11 @@ export class CarsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.brandId = Number(this.route.snapshot.paramMap.get('id'));
+    this.filter.id = Number(this.route.snapshot.paramMap.get('id'));
     this.getCars();
   }
 
   getCars() {
-    this.filter.id = this.brandId;
     this.store.dispatch(
       getCars({ filter: { ...this.filter }, fields: [...this.fieldsSearch] })
     );
@@ -147,6 +156,18 @@ export class CarsComponent implements OnInit, OnDestroy {
     this.filter = filter;
     this.getCars();
   }
+
+  brandChange() {
+    this.isScroll = false;
+    this.end = this.MAX_ITEM_PAGE;
+    this.getCars();
+  }
+
+  openDialog() {
+    this.dialogCar.open();
+  }
+
+  closeDialog() {}
 
   @HostListener('scroll', ['$event'])
   onScroll(event: Event) {

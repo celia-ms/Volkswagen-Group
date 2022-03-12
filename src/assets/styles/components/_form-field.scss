@@ -44,7 +44,13 @@
     height: 20px !important;
   }
 }
-
+.mat-option-text {
+  display: flex !important;
+  align-items: center;
+  img {
+    width: 24px !important;
+  }
+}
 .dark-theme {
   .mat-form-field-flex {
     background: var(--gray-dark) !important;

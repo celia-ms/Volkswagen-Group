@@ -6,9 +6,11 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { CarsComponent } from './pages/cars/cars.component';
 import { CarsRoutingModule } from './cars-routing.module';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { DialogCarComponent } from './components/dialog-car/dialog-car.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [CarsComponent],
+  declarations: [CarsComponent, DialogCarComponent],
   imports: [
     CommonModule,
     MaterialModule,
@@ -16,6 +18,8 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     CarsRoutingModule,
     SharedModule,
     InfiniteScrollModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
 })
 export class CarsModule {}

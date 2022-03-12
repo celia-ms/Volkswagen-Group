@@ -1,0 +1,20 @@
+<ng-template #dialog let-data>
+  <main class="dialog-wrapper">
+    <header class="pb-2">
+      <div class="d-flex justify-content-end">
+        <button mat-icon-button [disableRipple]="true" (click)="close()">
+          <mat-icon class="material-icons-outlined">close</mat-icon>
+        </button>
+      </div>
+      <h1 class="text-center">{{ config.title | translate }}</h1>
+      <ng-content select="[header]"></ng-content>
+    </header>
+    <mat-dialog-content>
+      <ng-content select="[content]"></ng-content>
+    </mat-dialog-content>
+    <mat-dialog-actions *ngIf="config.showCancelButton && config.showConfirmButton" class="dialog-actions">
+      <button mat-flat-button *ngIf="config.showCancelButton" (click)="cancel()">{{ "common.cancel" | translate }}</button>
+      <button mat-flat-button *ngIf="config.showConfirmButton" (click)="confirm()">{{ "common.confirm" | translate }}</button>
+    </mat-dialog-actions>
+  </main>
+</ng-template>

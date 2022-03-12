@@ -1,6 +1,6 @@
 @mixin vg-color {
-  background: var(--black);
-  color: var(--white);
+  background: var(--black) !important;
+  color: var(--white) !important;
 }
 
 .mat-icon-button {
@@ -19,6 +19,12 @@
   @include vg-color;
   padding: 2px 20px !important;
   border-radius: 20px !important;
+
+  span.mat-button-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .mat-fab {
