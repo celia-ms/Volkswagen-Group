@@ -52,6 +52,21 @@ On the card, you could click the three dots button and bring up a menu with thre
 
 ![image](https://user-images.githubusercontent.com/6065194/158073511-5908233b-de93-4928-b72a-a34861a00392.png)
 
+## Responsive
+### iPad Air (Light mode)
+![image](https://user-images.githubusercontent.com/6065194/158078479-15d5783f-2643-45ce-84f4-bcadcbd1a83e.png)
+![image](https://user-images.githubusercontent.com/6065194/158078498-e1cc8d77-c001-4eaa-ad7d-43320c4aa03a.png)
+
+![image](https://user-images.githubusercontent.com/6065194/158078512-b01f9a1b-2d9b-464a-9448-c9c2446d1819.png) 
+![image](https://user-images.githubusercontent.com/6065194/158078529-8adcc565-0b75-4878-bead-ff62de414151.png)
+### Samsung Galaxy S8 (Dark mode)
+![image](https://user-images.githubusercontent.com/6065194/158078578-9ae953d4-1420-47c0-b971-fd1d14f505f5.png) ![image](https://user-images.githubusercontent.com/6065194/158078600-d3b51196-ef9e-4258-93e2-c47af688a243.png)
+![image](https://user-images.githubusercontent.com/6065194/158078625-9bbe333f-d892-41fb-9203-e3f8ca43a794.png) ![image](https://user-images.githubusercontent.com/6065194/158078656-87370621-f6c0-4bda-a799-deffe7c6049f.png)
+
+
+
+
+
 # Important things
 
 ## External libraries used
