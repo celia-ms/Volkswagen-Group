@@ -31,6 +31,7 @@ export class DialogCarComponent implements OnInit {
     showCancelButton: true,
     showConfirmButton: true,
     confirmText: 'dialog.buttons.save',
+    backdropClass: 'dialog-car-container',
   };
 
   constructor(private translateService: TranslateService) {}

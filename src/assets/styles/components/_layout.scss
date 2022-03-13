@@ -26,3 +26,25 @@
     background: var(--dark-black) !important;
   }
 }
+
+@media (max-width: 992px) {
+  .layout-container {
+    .dashboard-container .mat-grid-list {
+      height: 100% !important;
+    }
+  }
+
+  .actions-container {
+    flex-direction: column;
+
+    .brand-select {
+      width: 100%;
+      margin: 0 !important;
+      padding: 6px 0;
+    }
+
+    .btn-add {
+      width: 100%;
+    }
+  }
+}

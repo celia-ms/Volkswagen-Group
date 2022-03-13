@@ -23,6 +23,7 @@ export class DialogComponent {
     showCancelButton: false,
     showConfirmButton: false,
     confirmText: '',
+    backdropClass: '',
   };
 
   @Output() closeClick = new EventEmitter();
@@ -35,7 +36,7 @@ export class DialogComponent {
     this.dialogRef = this.matDialog.open(this.dialog, {
       width: this.config.width,
       height: this.config.height,
-      backdropClass: 'dialog-backdrop',
+      backdropClass: this.config.backdropClass,
     });
   }
 

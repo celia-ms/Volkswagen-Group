@@ -9,3 +9,39 @@ mat-dialog-container {
     flex-direction: column;
   }
 }
+
+@media (max-height: 414px) {
+  .mat-dialog-content {
+    overflow: visible !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .cdk-overlay-container .dialog-car-container + * > .cdk-overlay-pane {
+    width: 80vw !important;
+  }
+
+  .cdk-overlay-container .dialog-delete-container + * > .cdk-overlay-pane {
+    width: 80vw !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1600px) {
+  .cdk-overlay-container .dialog-car-container + * > .cdk-overlay-pane {
+    width: 60vw !important;
+  }
+
+  .cdk-overlay-container .dialog-delete-container + * > .cdk-overlay-pane {
+    width: 40vw !important;
+  }
+}
+
+@media (min-width: 1600px) {
+  .cdk-overlay-container .dialog-car-container + * > .cdk-overlay-pane {
+    width: 40vw !important;
+  }
+
+  .cdk-overlay-container .dialog-delete-container + * > .cdk-overlay-pane {
+    width: 30vw !important;
+  }
+}

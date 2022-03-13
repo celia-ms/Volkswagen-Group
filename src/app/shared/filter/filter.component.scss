@@ -9,3 +9,17 @@
     width: 25%;
   }
 }
+
+@media (max-width: 768px) {
+  .filter-container {
+    flex-direction: column;
+    .field-search {
+      width: 100%;
+      padding-right: 0;
+      padding-bottom: 6px;
+    }
+    .field-sort {
+      width: 100%;
+    }
+  }
+}

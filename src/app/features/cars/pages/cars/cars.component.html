@@ -1,7 +1,7 @@
 <div class="actions-container d-flex align-items-center justify-content-between w-100 px-3 py-2">
     <app-filter class="w-100 ms-2 me-2" [fields]="fieldsSort" (searchChangeClick)="searchCars($event)" (sortChangeClick)="sortCars($event)">
     </app-filter>
-    <mat-form-field appearance="fill" class="me-5">
+    <mat-form-field appearance="fill" class="brand-select me-0 me-md-3 me-xl-5">
         <mat-select [(ngModel)]="filter.id" placeholder="{{'brand.change' | translate}}" (selectionChange)="brandChange()" name="brand.id">
             <mat-option *ngFor="let brand of brands" [value]="brand.id">
                 <img class="me-2" src="{{brand.image}}">
@@ -9,7 +9,7 @@
             </mat-option>
         </mat-select>
     </mat-form-field>
-    <button mat-flat-button (click)="openDialog(actions.NEW);">
+    <button mat-flat-button class="btn-add" (click)="openDialog(actions.NEW);">
         <mat-icon class="material-icons-outlined">add</mat-icon>
         {{"car.add" | translate}}
     </button>
@@ -18,7 +18,8 @@
 <div id="cars-container" class="p-3" infinite-scroll [infiniteScrollDistance]="scrollDistance" [infiniteScrollUpDistance]="scrollUpDistance"
     [infiniteScrollThrottle]="throttle" (scrolled)="loadCars()" [scrollWindow]="false" (scroll)="onScroll($event)">
     <div *ngIf="cars.length > 0 && !isLoading">
-        <mat-grid-list class="p-3 w-100" [rowHeight]="rowHeight" [cols]="columns" [gutterSize]="gutterSize">
+        <mat-grid-list class="p-3 w-100" [rowHeight]="rowHeight" [cols]="columns" [gutterSize]="gutterSize"
+            (window:resize)="setDimensions($event.target)">
             <mat-grid-tile class="animate__animated animate__zoomIn" *ngFor="let car of cars | slice:start:end">
                 <app-card-data [item]="car" (showClick)="showCar($event)" (editClick)="editCar($event)" (deleteClick)="deleteCar($event)">
                 </app-card-data>

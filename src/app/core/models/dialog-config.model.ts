@@ -5,4 +5,5 @@ export interface DialogConfig {
   showCancelButton: boolean;
   showConfirmButton: boolean;
   confirmText: string;
+  backdropClass: string;
 }

@@ -112,6 +112,7 @@ export class CarsComponent implements OnInit, OnDestroy {
     showCancelButton: true,
     showConfirmButton: true,
     confirmText: 'dialog.buttons.delete',
+    backdropClass: 'dialog-delete-container',
   };
 
   constructor(
@@ -144,6 +145,7 @@ export class CarsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.setDimensions(window);
     this.filter.id = Number(this.route.snapshot.paramMap.get('id'));
     this.getCars();
   }
@@ -219,6 +221,37 @@ export class CarsComponent implements OnInit, OnDestroy {
     this.dialogDelete.success();
     this.store.dispatch(deleteCarById({ id: this.idSelectedCar }));
     this.getCars();
+  }
+
+  setDimensions(event: any) {
+    const width = event.innerWidth;
+    if (width < 768) {
+      this.refreshDimensions(1, '320px', '12px');
+    } else {
+      if (width >= 768 && width < 992) {
+        this.refreshDimensions(2, '340px', '14px');
+      } else {
+        if (width >= 992 && width < 1300) {
+          this.refreshDimensions(3, '360px', '16px');
+        } else {
+          if (width >= 1300 && width < 1648) {
+            this.refreshDimensions(4, '360px', '18px');
+          } else {
+            if (width >= 1648 && width < 1860) {
+              this.refreshDimensions(5, '360px', '20px');
+            } else {
+              this.refreshDimensions(6, '360px', '20px');
+            }
+          }
+        }
+      }
+    }
+  }
+
+  refreshDimensions(columns: number, rowHeight: string, gutterSize: string) {
+    this.columns = columns;
+    this.rowHeight = rowHeight;
+    this.gutterSize = gutterSize;
   }
 
   @HostListener('scroll', ['$event'])

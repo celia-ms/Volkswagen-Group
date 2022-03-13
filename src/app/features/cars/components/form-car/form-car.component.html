@@ -1,17 +1,15 @@
 <form [formGroup]="carForm" class="d-flex flex-column" autocomplete="off">
-    <div class="d-flex align-items-center justify-content-between pb-4">
-        <div class="pe-4 py-4">
-            <img src="{{image}}">
-        </div>
+    <div class="form-container  d-flex align-items-center justify-content-between pb-4">
+        <img class="pe-4 py-4" src="{{image}}">
         <div>
             <div class="row pb-5">
-                <mat-form-field appearance="outline" class="col-6">
+                <mat-form-field appearance="outline" class="col-12 col-xl-6 pb-5 pb-xl-0">
                     <mat-label>{{ "car.fields.model.display" | translate }}</mat-label>
                     <input matInput placeholder="{{ 'car.fields.model.placeholder' | translate }}" [formControlName]="'model'" required />
                     <mat-error *ngIf="carForm.controls.model.invalid">{{ "car.fields.model.error.required" | translate }}
                     </mat-error>
                 </mat-form-field>
-                <mat-form-field appearance="outline" class="col-6">
+                <mat-form-field appearance="outline" class="col-12 col-xl-6">
                     <mat-select [formControlName]="'brand'" name="brand.id">
                         <mat-option *ngFor="let brand of brands" [value]="brand.id">
                             <img class="me-2" src="{{brand.image}}">
@@ -23,21 +21,21 @@
                 </mat-form-field>
             </div>
             <div class="row pb-2">
-                <mat-form-field appearance="outline" class="col-4">
+                <mat-form-field appearance="outline" class="col-12 col-md-4 col-xl-4 pb-5 pb-xl-0">
                     <mat-label>{{ "car.fields.price.display" | translate }}</mat-label>
                     <input matInput type="number" min="0" placeholder="{{ 'car.fields.price.placeholder' | translate }}" [formControlName]="'price'"
                         required />
                     <mat-error *ngIf="carForm.controls.model.invalid">{{ "car.fields.price.error.required" | translate }}
                     </mat-error>
                 </mat-form-field>
-                <mat-form-field appearance="outline" class="col-4">
+                <mat-form-field appearance="outline" class="col-12 col-md-3 col-xl-4 pb-5 pb-xl-0">
                     <mat-label>{{ "car.fields.power.display" | translate }}</mat-label>
                     <input matInput type="number" min="0" max="600" placeholder="{{ 'car.fields.power.placeholder' | translate }}"
                         [formControlName]="'power'" required />
                     <mat-error *ngIf="carForm.controls.model.invalid">{{ "car.fields.power.error.required" | translate }}
                     </mat-error>
                 </mat-form-field>
-                <mat-form-field appearance="outline" class="col-4">
+                <mat-form-field appearance="outline" class="col-12 col-md-5 col-xl-4">
                     <mat-select [formControlName]="'fuel'" name="fuelType.type">
                         <mat-option *ngFor="let fuelType of fuelTypes" [value]="fuelType.type">
                             <span>{{ fuelType.value | translate}}</span>

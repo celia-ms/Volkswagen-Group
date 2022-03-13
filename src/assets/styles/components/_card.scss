@@ -6,53 +6,65 @@
   -webkit-box-orient: vertical;
 }
 
-mat-card {
-  img {
-    width: 80% !important;
-    height: auto !important;
-    margin: 0 !important;
-  }
+@mixin card-sizes($width, $height) {
+  width: $width;
+  height: $height;
+}
 
-  mat-card-title {
-    font-weight: bold;
-    font-size: 24px !important;
-    line-height: 28px;
-    @include line-clamp(1);
-  }
-
-  mat-card-subtitle {
-    font-weight: bold;
-    font-size: 18px !important;
-    margin-bottom: 6px !important;
-  }
-
-  mat-card-content {
-    p {
-      font-size: 14px !important;
-      @include line-clamp(3);
+@mixin card-content-sizes(
+  $width: 80%,
+  $f-zT: 24px,
+  $l-height: 28px,
+  $f-zS: 20px,
+  $f-zC: 14px,
+  $pd: 6px
+) {
+  mat-card {
+    img {
+      width: $width !important;
+      height: auto !important;
+      margin: 0 !important;
     }
-  }
 
-  mat-card-footer {
-    position: absolute;
-    font-weight: bold;
-    font-size: 14px !important;
-    bottom: 16px;
-    width: 100%;
-  }
+    mat-card-title {
+      font-weight: bold;
+      font-size: $f-zT !important;
+      line-height: $l-height;
+      @include line-clamp(1);
+    }
 
-  .mat-card-title-group {
-    align-items: baseline;
-  }
+    mat-card-subtitle {
+      font-weight: bold;
+      font-size: $f-zS !important;
+      margin-bottom: 6px !important;
+    }
 
-  .mat-divider-horizontal.mat-divider-inset {
-    padding: 6px !important;
+    mat-card-content {
+      p {
+        font-size: $f-zC !important;
+        overflow: hidden;
+        @include line-clamp(3);
+      }
+    }
+
+    .mat-card-title-group {
+      align-items: baseline;
+    }
+
+    .mat-divider-horizontal.mat-divider-inset {
+      padding: $pd !important;
+    }
   }
 }
 
+@include card-content-sizes();
+
+app-card-data .mat-card {
+  @include card-sizes(280px, 340px);
+}
+
 app-card-image .mat-card {
-  width: 360px;
-  height: 360px;
+  @include card-sizes(360px, 360px);
 
   cursor: pointer;
 
@@ -63,7 +75,50 @@ app-card-image .mat-card {
   }
 }
 
-app-card-data .mat-card {
-  width: 280px;
-  height: 340px;
+@media (max-width: 768px) {
+  @include card-content-sizes(60%, 18px, 22px, 16px, 14px, 2px);
+
+  app-card-data .mat-card {
+    @include card-sizes(220px, 300px);
+  }
+
+  app-card-image .mat-card {
+    @include card-sizes(200px, 200px);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  @include card-content-sizes(60%, 20px, 24px, 18px, 14px, 2px);
+
+  app-card-data .mat-card {
+    @include card-sizes(240px, 300px);
+  }
+
+  app-card-image .mat-card {
+    @include card-sizes(240px, 240px);
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1300px) {
+  @include card-content-sizes(60%, 24px, 28px, 18px, 14px, 2px);
+
+  app-card-data .mat-card {
+    @include card-sizes(260px, 320px);
+  }
+
+  app-card-image .mat-card {
+    @include card-sizes(280px, 280px);
+  }
+}
+
+@media (min-width: 1300px) and (max-width: 1648px) {
+  @include card-content-sizes(80%, 24px, 28px, 20px, 14px, 4px);
+
+  app-card-data .mat-card {
+    @include card-sizes(280px, 340px);
+  }
+
+  app-card-image .mat-card {
+    @include card-sizes(320px, 320px);
+  }
 }
