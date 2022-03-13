@@ -32,15 +32,42 @@ On this screen, that have infinite scroll, you could see the cars filtered by th
 
 You could add new cars. All fields in the form are required, if you leave any field empty you couldn't save the new car.
 
-![image](https://user-images.githubusercontent.com/6065194/158072978-51075e71-bb68-44ac-86a5-e32d5d79c673.png)
+![image](https://user-images.githubusercontent.com/6065194/158073389-68e1150b-5176-4c3c-95ff-e016c4402676.png)
 
 ### Menu card
 On the card, you could click the three dots button and bring up a menu with three options:
-![image](https://user-images.githubusercontent.com/6065194/158073092-1ce825c3-3cdc-474c-a6f1-1da8acf675ed.png)
+
+![image](https://user-images.githubusercontent.com/6065194/158073351-bb5e82ff-9a2c-4555-b257-d920051426b9.png)
+
 * `Show`: You could see all information of the select car. You couldn't edit this information since this option.
+
+![image](https://user-images.githubusercontent.com/6065194/158073437-4102ed58-4173-4f40-bf01-c12119a69236.png)
+
 * `Edit`: You could see and update all information of the select car.
+
+![image](https://user-images.githubusercontent.com/6065194/158073481-631b7ba0-72e6-468e-829c-173594b29419.png)
+
+
 * `Delete`: You could delete the select car.
 
+![image](https://user-images.githubusercontent.com/6065194/158073511-5908233b-de93-4928-b72a-a34861a00392.png)
+
+# Important things
+
+## External libraries used
+
+* [NgRx](https://ngrx.io) for State Manager.
+* [lodash](https://lodash.com) for working with arrays, numbers, objects, strings, etc.
+* [ngx-infinite-scroll](https://github.com/orizens/ngx-infinite-scroll) for create infinite scroll.
+
+## UI component library used
+* [Material](https://material.angular.io) for create UI component infrastructure and Material Design components for mobile and desktop Angular web applications.
+* [Bootstrap utility classes](https://getbootstrap.com/docs/5.1/utilities) for showing, hiding, aligning, and spacing content.
+* [Animate.css] (https://animate.style) for create animations.
+
+## Tests results
+
+# Running application
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.2.
 
