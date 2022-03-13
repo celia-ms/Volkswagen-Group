@@ -239,16 +239,6 @@
       "image": "c-model-arteon.png"
     },
     {
-      "image": "icon-not-image.png",
-      "brad_id": 1,
-      "model": "Test fgfgf fgfg",
-      "description": "fdffsdf",
-      "price": 1234,
-      "power": 123,
-      "fuel": "Diesel",
-      "id": 23
-    },
-    {
       "brad_id": 1,
       "model": "cvcv",
       "description": "tertrtretret",
@@ -287,36 +277,6 @@
       "fuel": "Diesel",
       "image": "icon-not-image.png",
       "id": 28
-    },
-    {
-      "brad_id": 2,
-      "model": "dffdf",
-      "description": "fsfdf",
-      "price": 344,
-      "power": 233,
-      "fuel": "Diesel",
-      "image": "icon-not-image.png",
-      "id": 29
-    },
-    {
-      "brad_id": 2,
-      "model": "dfdsf",
-      "description": "fgdgdg",
-      "price": 445,
-      "power": 34,
-      "fuel": "Diesel",
-      "image": "icon-not-image.png",
-      "id": 30
-    },
-    {
-      "brad_id": 2,
-      "model": "fffff",
-      "description": "dfdfdf",
-      "price": 1234,
-      "power": 124,
-      "fuel": "Diesel",
-      "image": "icon-not-image.png",
-      "id": 31
     }
   ]
 }

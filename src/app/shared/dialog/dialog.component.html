@@ -12,9 +12,9 @@
     <mat-dialog-content class="h-100">
       <ng-content select="[content]"></ng-content>
     </mat-dialog-content>
-    <mat-dialog-actions *ngIf="config.showCancelButton && config.showConfirmButton" class="dialog-actions d-flex justify-content-end">
+    <mat-dialog-actions *ngIf="config.showCancelButton || config.showConfirmButton" class="dialog-actions d-flex justify-content-end">
       <button mat-flat-button *ngIf="config.showCancelButton" color="accent" (click)="cancel()">{{ "dialog.buttons.cancel" | translate }}</button>
-      <button mat-flat-button *ngIf="config.showConfirmButton" (click)="confirm()">{{ "dialog.buttons.save" | translate }}</button>
+      <button mat-flat-button *ngIf="config.showConfirmButton" (click)="confirm()">{{ config.confirmText | translate }}</button>
     </mat-dialog-actions>
   </main>
 </ng-template>

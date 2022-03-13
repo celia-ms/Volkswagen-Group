@@ -22,6 +22,7 @@ export class DialogComponent {
     height: '90vh',
     showCancelButton: false,
     showConfirmButton: false,
+    confirmText: '',
   };
 
   @Output() closeClick = new EventEmitter();

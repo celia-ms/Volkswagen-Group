@@ -91,7 +91,12 @@
     "dialog": {
         "buttons": {
             "save": "Save",
-            "cancel": "Cancel"
+            "cancel": "Cancel",
+            "delete": "Delete"
+        },
+        "delete": {
+            "title": "Deleter Car",
+            "message": "Are you sure you want to delete the car?"
         }
     },
     "card": {

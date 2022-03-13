@@ -91,7 +91,12 @@
     "dialog": {
         "buttons": {
             "save": "Guardar",
-            "cancel": "Cancelar"
+            "cancel": "Cancelar",
+            "delete": "Eliminar"
+        },
+        "delete": {
+            "title": "Eliminar Coche",
+            "message": "¿Está seguro que quiere eliminar el coche?"
         }
     },
     "card": {

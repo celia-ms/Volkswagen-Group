@@ -4,4 +4,5 @@ export interface DialogConfig {
   height: string;
   showCancelButton: boolean;
   showConfirmButton: boolean;
+  confirmText: string;
 }

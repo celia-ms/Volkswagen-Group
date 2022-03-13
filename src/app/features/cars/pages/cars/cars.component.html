@@ -41,3 +41,10 @@
 </div>
 
 <app-dialog-car #dialogCar (confirmClick)="getCars()"></app-dialog-car>
+
+<app-dialog #dialogDelete [config]="dialogDeleteConfig" (confirmClick)="confirmDialogDelete()" (cancelClick)="dialogDelete.close()"
+    (closeClick)="dialogDelete.close()">
+    <div content class="w-100 h-100">
+        <h3>{{"dialog.delete.message" | translate}}</h3>
+    </div>
+</app-dialog>

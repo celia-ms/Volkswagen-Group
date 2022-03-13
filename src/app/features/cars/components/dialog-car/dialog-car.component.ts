@@ -30,6 +30,7 @@ export class DialogCarComponent implements OnInit {
     height: '60vh',
     showCancelButton: true,
     showConfirmButton: true,
+    confirmText: 'dialog.buttons.save',
   };
 
   constructor(private translateService: TranslateService) {}

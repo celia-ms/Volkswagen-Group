@@ -24,6 +24,7 @@ import { brandMock } from 'src/app/core/mocks/brand.mock';
 import { Brand } from 'src/app/core/models/brand.model';
 import * as carSelector from 'src/app/features/cars/store/car.selector';
 import { actions } from 'src/app/constants/constants';
+import { DialogConfig } from 'src/app/core/models/dialog-config.model';
 @Component({
   selector: 'app-car',
   templateUrl: './cars.component.html',
@@ -36,9 +37,12 @@ export class CarsComponent implements OnInit, OnDestroy {
   subscriptions = new Subscription();
 
   @ViewChild('dialogCar', { static: true }) dialogCar: any;
+  @ViewChild('dialogDelete', { static: true }) dialogDelete: any;
 
   cars: Car[] = [];
   car: Car = new Car();
+
+  idSelectedCar!: number;
 
   columns: number = 6;
   rowHeight: string = '360px';
@@ -99,6 +103,15 @@ export class CarsComponent implements OnInit, OnDestroy {
     title: 'car.no_cars.title',
     description: 'car.no_cars.description',
     image: `${paths.image_cars}/icon-not-found.svg`,
+  };
+
+  dialogDeleteConfig: DialogConfig = {
+    title: 'dialog.delete.title',
+    width: '30vw',
+    height: '36vh',
+    showCancelButton: true,
+    showConfirmButton: true,
+    confirmText: 'dialog.buttons.delete',
   };
 
   constructor(
@@ -190,12 +203,22 @@ export class CarsComponent implements OnInit, OnDestroy {
   }
 
   deleteCar(id: number) {
-    this.store.dispatch(deleteCarById({ id: id }));
-    this.getCars();
+    this.idSelectedCar = id;
+    this.openDialogDelete();
   }
 
   openDialog(action: number) {
     this.dialogCar.open(action);
+  }
+
+  openDialogDelete() {
+    this.dialogDelete.open();
+  }
+
+  confirmDialogDelete() {
+    this.dialogDelete.success();
+    this.store.dispatch(deleteCarById({ id: this.idSelectedCar }));
+    this.getCars();
   }
 
   @HostListener('scroll', ['$event'])
