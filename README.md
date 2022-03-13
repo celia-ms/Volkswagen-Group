@@ -75,7 +75,7 @@ On the card, you could click the three dots button and bring up a menu with thre
 ![image](https://user-images.githubusercontent.com/6065194/158077399-b3cd0ed1-1eaf-446f-9fe0-c92b7d385eff.png)
 
 
-# Run application
+# Running application
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.2.
 
