@@ -56,18 +56,26 @@ On the card, you could click the three dots button and bring up a menu with thre
 
 ## External libraries used
 
-* [NgRx](https://ngrx.io) for State Manager.
+* [NgRx](https://ngrx.io) for manage the application state, based on the Redux pattern.
 * [lodash](https://lodash.com) for working with arrays, numbers, objects, strings, etc.
 * [ngx-infinite-scroll](https://github.com/orizens/ngx-infinite-scroll) for create infinite scroll.
 
-## UI component library used
+## UI component libraries used
 * [Material](https://material.angular.io) for create UI component infrastructure and Material Design components for mobile and desktop Angular web applications.
 * [Bootstrap utility classes](https://getbootstrap.com/docs/5.1/utilities) for showing, hiding, aligning, and spacing content.
-* [Animate.css] (https://animate.style) for create animations.
+* [Animate.css](https://animate.style) for create animations.
 
-## Tests results
+## Unit and Integration testing results
 
-# Running application
+* FooterComponent (HTML test)
+* CarService
+* FormCarComponent
+* FilterComponent
+
+![image](https://user-images.githubusercontent.com/6065194/158077399-b3cd0ed1-1eaf-446f-9fe0-c92b7d385eff.png)
+
+
+# Run application
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.2.
 
