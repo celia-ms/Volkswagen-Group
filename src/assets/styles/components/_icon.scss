@@ -1,9 +1,7 @@
 .icon-container {
-  width: 24px;
-  cursor: pointer;
-  &.default {
-    cursor: default;
-  }
+  line-height: 0 !important;
+  width: 24px !important;
+  height: 0 !important;
 }
 
 .dark-theme .mat-icon {

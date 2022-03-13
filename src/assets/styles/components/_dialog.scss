@@ -23,6 +23,7 @@ mat-dialog-container {
 
   .cdk-overlay-container .dialog-delete-container + * > .cdk-overlay-pane {
     width: 80vw !important;
+    height: 40vh !important;
   }
 }
 
@@ -33,6 +34,7 @@ mat-dialog-container {
 
   .cdk-overlay-container .dialog-delete-container + * > .cdk-overlay-pane {
     width: 40vw !important;
+    height: 36vh !important;
   }
 }
 
@@ -43,5 +45,6 @@ mat-dialog-container {
 
   .cdk-overlay-container .dialog-delete-container + * > .cdk-overlay-pane {
     width: 30vw !important;
+    height: 30vh !important;
   }
 }

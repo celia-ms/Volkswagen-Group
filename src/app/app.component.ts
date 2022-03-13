@@ -20,8 +20,6 @@ export class AppComponent {
 
   loadCustomIcons() {
     this.registryIcon('icon-logo', `${paths.images}/icon-logo.svg`);
-    this.registryIcon('icon-fuel', `${paths.image_features}/icon-fuel.svg`);
-    this.registryIcon('icon-speed', `${paths.image_features}/icon-speed.svg`);
     this.registryIcon('icon-car', `${paths.image_features}/icon-car.svg`);
     this.registryIcon('icon-oil', `${paths.image_features}/icon-oil.svg`);
     this.registryIcon(

@@ -69,7 +69,7 @@ export class CarsComponent implements OnInit, OnDestroy {
   brands: Brand[] = brandMock;
 
   filter: Filter = {
-    id: 0,
+    id: 1,
     field: '',
     search: '',
     order: 'asc',
@@ -108,7 +108,7 @@ export class CarsComponent implements OnInit, OnDestroy {
   dialogDeleteConfig: DialogConfig = {
     title: 'dialog.delete.title',
     width: '30vw',
-    height: '36vh',
+    height: '26vh',
     showCancelButton: true,
     showConfirmButton: true,
     confirmText: 'dialog.buttons.delete',
@@ -178,7 +178,9 @@ export class CarsComponent implements OnInit, OnDestroy {
   }
 
   sortCars(filter: Filter) {
-    this.filter = filter;
+    this.filter.field = filter.field;
+    this.filter.order = filter.order;
+    this.filter.search = filter.search;
     this.getCars();
   }
 

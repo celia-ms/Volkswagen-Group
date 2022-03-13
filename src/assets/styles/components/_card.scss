@@ -61,6 +61,12 @@
 
 app-card-data .mat-card {
   @include card-sizes(280px, 340px);
+
+  .features-container {
+    p {
+      margin: 6px 0 0 4px;
+    }
+  }
 }
 
 app-card-image .mat-card {

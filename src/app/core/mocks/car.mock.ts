@@ -9,10 +9,6 @@ export const TEST_CARS: Car[] = [
     price: 22.0,
     power: 115,
     fuel: 'Gasolina',
-    length: 4.258,
-    width: 1.79,
-    height: 1.492,
-    weight: 1.216,
     image: 'c-model-golf.png',
   },
   {
@@ -23,10 +19,6 @@ export const TEST_CARS: Car[] = [
     price: 54.0,
     power: 150,
     fuel: 'Diesel',
-    length: 4.904,
-    width: 1.904,
-    height: 1.904,
-    weight: 2.35,
     image: 'c-model-california.png',
   },
   {
@@ -37,10 +29,6 @@ export const TEST_CARS: Car[] = [
     price: 54.0,
     power: 239,
     fuel: 'Diesel',
-    length: 4.862,
-    width: 1.871,
-    height: 1.45,
-    weight: 1.45,
     image: 'c-model-arteon.png',
   },
   {
@@ -51,10 +39,6 @@ export const TEST_CARS: Car[] = [
     price: 17.0,
     power: 120,
     fuel: 'Diesel',
-    length: 1.904,
-    width: 1.904,
-    height: 1.704,
-    weight: 1.9,
     image: 'c-model-ibiza.png',
   },
 ];
@@ -67,10 +51,6 @@ export const TEST_CAR: Car = {
   price: 22.0,
   power: 115,
   fuel: 'Gasolina',
-  length: 4.258,
-  width: 1.79,
-  height: 1.492,
-  weight: 1.216,
   image: 'c-model-golf.png',
 };
 
@@ -82,10 +62,6 @@ export const TEST_UPDATE_CAR: Car = {
   price: 17.0,
   power: 120,
   fuel: 'Diesel',
-  length: 1.904,
-  width: 1.904,
-  height: 1.704,
-  weight: 1.9,
   image: 'c-model-ibiza.png',
 };
 
@@ -97,10 +73,6 @@ export const TEST_CREATE_CAR: Car = {
   price: 21.0,
   power: 140,
   fuel: 'Gasolina',
-  length: 2.404,
-  width: 1.204,
-  height: 1.504,
-  weight: 1.85,
   image: 'c-model-leon.png',
 };
 
@@ -112,9 +84,5 @@ export const TEST_DELETE_CAR: Car = {
   price: 54.0,
   power: 239,
   fuel: 'Diesel',
-  length: 4.862,
-  width: 1.871,
-  height: 1.45,
-  weight: 1.45,
   image: 'c-model-arteon.png',
 };

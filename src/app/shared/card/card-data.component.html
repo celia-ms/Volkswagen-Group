@@ -23,14 +23,15 @@
     <img mat-card-xl-image src="{{item.image}}">
   </div>
   <mat-card-subtitle class="pt-3">{{currency}}</mat-card-subtitle>
-  <div class="d-flex align-items-center justify-content-between pb-3">
-    <span>
-      <mat-icon svgIcon="icon-starter"></mat-icon> {{item.power}} cv
-    </span>
-    <span>
+  <div class="features-container d-flex align-items-center justify-content-between pb-3">
+    <div class="d-flex align-items-center justify-content-between">
+      <mat-icon svgIcon="icon-starter"></mat-icon>
+      <p>{{item.power}} cv</p>
+    </div>
+    <div class="d-flex align-items-center justify-content-between">
       <mat-icon svgIcon="icon-oil"></mat-icon>
-      {{item.fuel}}
-    </span>
+      <p>{{item.fuel}}</p>
+    </div>
     <mat-icon svgIcon="icon-car"></mat-icon>
   </div>
   <mat-divider inset></mat-divider>

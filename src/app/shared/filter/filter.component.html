@@ -2,13 +2,13 @@
     <mat-form-field appearance="fill" class="field-search">
         <input matInput [(ngModel)]="filter.search" placeholder="{{'filter.search.display' | translate}}" (keyup)="onKeyup()"
             (keydown.enter)="onKeydown($event)">
-        <div class="icon-container">
+        <button mat-icon-button class="icon-container" [disableRipple]="true">
             <mat-icon matSuffix *ngIf="filter.search && filter.search.length > 0" class="material-icons-outlined" (click)=searchClear()>clear
             </mat-icon>
-        </div>
-        <div class="mx-2 icon-container">
-            <mat-icon matSuffix class="material-icons-outlined" (click)="searchChange()">search</mat-icon>
-        </div>
+        </button>
+        <button mat-icon-button class="mx-2 icon-container" [disableRipple]="true" [disabled]="filter.search.length === 0" (click)="searchChange()">
+            <mat-icon matSuffix class="material-icons-outlined">search</mat-icon>
+        </button>
     </mat-form-field>
     <mat-form-field appearance="fill" class="field-sort">
         <mat-select [(ngModel)]="filter.field" placeholder="{{'filter.order_by.display' | translate}}" (selectionChange)="sortChange()"
@@ -17,11 +17,11 @@
                 <span>{{ field.display | translate }}</span>
             </mat-option>
         </mat-select>
-        <div class="icon-container">
+        <button mat-icon-button class="icon-container">
             <mat-icon matSuffix *ngIf="filter.field" class="material-icons-outlined" (click)=sortClear($event)>clear</mat-icon>
-        </div>
-        <div class="mx-2 icon-container">
-            <mat-icon matSuffix class="material-icons-outlined" (click)=orderChange($event)>{{isOrderAsc ? 'north' : 'south'}}</mat-icon>
-        </div>
+        </button>
+        <button mat-icon-button class="mx-2 icon-container" [disableRipple]="true" [disabled]="filter.field.length === 0" (click)=orderChange($event)>
+            <mat-icon matSuffix class="material-icons-outlined">{{isOrderAsc ? 'north' : 'south'}}</mat-icon>
+        </button>
     </mat-form-field>
 </div>

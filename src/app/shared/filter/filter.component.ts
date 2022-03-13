@@ -1,4 +1,12 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { Filter } from 'src/app/core/models/filter.model';
 
 @Component({
@@ -15,7 +23,7 @@ export class FilterComponent implements OnInit {
   isOrderAsc = true;
 
   filter: Filter = {
-    id: 0,
+    id: 1,
     field: '',
     search: '',
     order: 'asc',

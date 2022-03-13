@@ -6,9 +6,5 @@ export class Car {
   price!: number;
   power!: number;
   fuel!: string;
-  length!: number;
-  width!: number;
-  height!: number;
-  weight!: number;
   image!: string;
 }
