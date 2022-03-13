@@ -2,39 +2,45 @@ import {
   Component,
   EventEmitter,
   Input,
-  OnChanges,
+  OnDestroy,
   OnInit,
   Output,
-  SimpleChanges,
 } from '@angular/core';
+import { select, Store } from '@ngrx/store';
+import { Subscription } from 'rxjs';
 import { Filter } from 'src/app/core/models/filter.model';
+import { AppState } from 'src/app/core/store/app.state';
+import * as carSelector from 'src/app/features/cars/store/car.selector';
 
 @Component({
   selector: 'app-filter',
   templateUrl: './filter.component.html',
   styleUrls: ['./filter.component.scss'],
 })
-export class FilterComponent implements OnInit {
+export class FilterComponent implements OnInit, OnDestroy {
   @Input('fields') fields: any[] = [];
 
   @Output() searchChangeClick = new EventEmitter();
   @Output() sortChangeClick = new EventEmitter();
 
+  subscriptions = new Subscription();
+
   isOrderAsc = true;
 
-  filter: Filter = {
-    id: 1,
-    field: '',
-    search: '',
-    order: 'asc',
-  };
+  filter!: Filter;
 
-  constructor() {}
+  constructor(private store: Store<AppState>) {
+    this.subscriptions.add(
+      this.store.pipe(select(carSelector.getFilter)).subscribe((filter) => {
+        this.filter = { ...filter };
+      })
+    );
+  }
 
   ngOnInit(): void {}
 
   searchChange() {
-    this.searchChangeClick.emit(this.filter.search);
+    this.searchChangeClick.emit(this.filter);
   }
 
   sortChange() {
@@ -57,7 +63,7 @@ export class FilterComponent implements OnInit {
     event.stopPropagation();
     this.filter.field = '';
     this.filter.order = 'asc';
-    this.searchChangeClick.emit(this.filter.search);
+    this.searchChangeClick.emit(this.filter);
   }
 
   onKeyup() {
@@ -68,7 +74,11 @@ export class FilterComponent implements OnInit {
 
   onKeydown(event: any) {
     if (event.key === 'Enter') {
-      this.searchChangeClick.emit(this.filter.search);
+      this.searchChangeClick.emit(this.filter);
     }
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
   }
 }

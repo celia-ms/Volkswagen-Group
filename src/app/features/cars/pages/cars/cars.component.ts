@@ -25,6 +25,7 @@ import { Brand } from 'src/app/core/models/brand.model';
 import * as carSelector from 'src/app/features/cars/store/car.selector';
 import { actions } from 'src/app/constants/constants';
 import { DialogConfig } from 'src/app/core/models/dialog-config.model';
+import { setFilterCars } from '../../store/car.actions';
 @Component({
   selector: 'app-car',
   templateUrl: './cars.component.html',
@@ -68,12 +69,7 @@ export class CarsComponent implements OnInit, OnDestroy {
 
   brands: Brand[] = brandMock;
 
-  filter: Filter = {
-    id: 1,
-    field: '',
-    search: '',
-    order: 'asc',
-  };
+  filter!: Filter;
 
   fieldsSearch = ['model', 'description', 'price', 'power', 'fuel'];
   fieldsSort = [
@@ -142,11 +138,18 @@ export class CarsComponent implements OnInit, OnDestroy {
           this.isLoading = isLoadingCars;
         })
     );
+
+    this.subscriptions.add(
+      this.store.pipe(select(carSelector.getFilter)).subscribe((filter) => {
+        this.filter = { ...filter };
+      })
+    );
   }
 
   ngOnInit(): void {
     this.setDimensions(window);
     this.filter.id = Number(this.route.snapshot.paramMap.get('id'));
+    this.store.dispatch(setFilterCars({ filter: this.filter }));
     this.getCars();
   }
 
@@ -172,15 +175,13 @@ export class CarsComponent implements OnInit, OnDestroy {
     }
   }
 
-  searchCars(search: string) {
-    this.filter.search = search;
+  searchCars(filter: Filter) {
+    this.store.dispatch(setFilterCars({ filter: filter }));
     this.getCars();
   }
 
   sortCars(filter: Filter) {
-    this.filter.field = filter.field;
-    this.filter.order = filter.order;
-    this.filter.search = filter.search;
+    this.store.dispatch(setFilterCars({ filter: filter }));
     this.getCars();
   }
 
@@ -191,8 +192,8 @@ export class CarsComponent implements OnInit, OnDestroy {
     this.finishPage = 0;
     this.actualPage = 1;
     this.maxItems = 0;
-
     this.start = 0;
+    this.store.dispatch(setFilterCars({ filter: this.filter }));
     this.getCars();
   }
 

@@ -41,6 +41,11 @@ export const saveCar = createAction('[CAR] Save car', props<{ car: Car }>());
 
 export const clearCarState = createAction('[CAR] Clear state');
 
+export const setFilterCars = createAction(
+  '[CAR] Set filter cars',
+  props<{ filter: Filter }>()
+);
+
 const actions = union({
   getCars,
   getCarById,
@@ -51,6 +56,7 @@ const actions = union({
   saveCar,
   clearCarState,
   setIsLoadingCars,
+  setFilterCars,
 });
 
 export type CarActions = typeof actions;

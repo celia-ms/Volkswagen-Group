@@ -185,7 +185,7 @@
       "brad_id": 3,
       "model": "Alhambra",
       "description": "Se caracteriza por ofrecer un diseño atractivo, una buena relación calidad-precio y una gran oferta de motores, tecnología y dinamismo.",
-      "price": 16000,
+      "price": 26300,
       "power": 180,
       "fuel": "Gasolina",
       "image": "c-model-alhambra.png"
@@ -195,7 +195,7 @@
       "brad_id": 3,
       "model": "Arona",
       "description": "Se caracteriza por ofrecer un diseño atractivo, una buena relación calidad-precio y una gran oferta de motores, tecnología y dinamismo.",
-      "price": 16000,
+      "price": 17900,
       "power": 180,
       "fuel": "Gasolina",
       "image": "c-model-arona.png"
@@ -319,6 +319,26 @@
       "fuel": "Diesel",
       "image": "icon-not-image.png",
       "id": 31
+    },
+    {
+      "brad_id": 3,
+      "model": "Ateca",
+      "description": "Se caracteriza por ofrecer un diseño atractivo, una buena relación calidad-precio y una gran oferta de motores, tecnología y dinamismo.",
+      "price": 27000,
+      "power": 245,
+      "fuel": "Diesel",
+      "image": "icon-not-image.png",
+      "id": 32
+    },
+    {
+      "brad_id": 4,
+      "model": "Kamiq",
+      "description": "Se caracteriza por ofrecer un diseño atractivo, una buena relación calidad-precio y una gran oferta de motores, tecnología y dinamismo.",
+      "price": 27980,
+      "power": 213,
+      "fuel": "Gasolina",
+      "image": "icon-not-image.png",
+      "id": 33
     }
   ]
 }

@@ -17,3 +17,8 @@ export const getCar = createSelector(
   getCarState,
   (state: carReducer.CarState) => state.car
 );
+
+export const getFilter = createSelector(
+  getCarState,
+  (state: carReducer.CarState) => state.filter
+);

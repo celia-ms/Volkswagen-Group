@@ -2,8 +2,11 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StoreModule } from '@ngrx/store';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { Filter } from 'src/app/core/models/filter.model';
+import { appReducers } from 'src/app/core/store/app.state';
 import { MaterialModule } from 'src/app/material/material.module';
 import { FilterComponent } from './filter.component';
 
@@ -15,6 +18,7 @@ describe('FilterComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [FilterComponent],
       imports: [
+        StoreModule.forRoot(appReducers),
         BrowserAnimationsModule,
         MaterialModule,
         FormsModule,
@@ -56,17 +60,22 @@ describe('FilterComponent', () => {
         expect(component.searchChange).toBeTruthy();
       });
 
-      it('should emit an event when the search change and the value returns will be equal to the search', () => {
-        let newSearch = '';
+      it('should emit an event when the search change and the value returns will be equal to the field search in the filter', () => {
+        let newFilter: Filter = {
+          id: 0,
+          search: '',
+          field: '',
+          order: 'asc',
+        };
         component.filter.search = 'Golf';
 
-        component.searchChangeClick.subscribe((search) => {
-          newSearch = search;
+        component.searchChangeClick.subscribe((filter) => {
+          newFilter = filter;
         });
 
         component.searchChange();
 
-        expect(newSearch).toEqual(component.filter.search);
+        expect(newFilter.search).toEqual(component.filter.search);
       });
     });
 

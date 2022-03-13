@@ -1,5 +1,6 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import { Car } from 'src/app/core/models/car.model';
+import { Filter } from 'src/app/core/models/filter.model';
 import {
   getCars,
   getCarById,
@@ -8,18 +9,26 @@ import {
   clearCarState,
   deleteCarById,
   setIsLoadingCars,
+  setFilterCars,
 } from './car.actions';
 
 export interface CarState {
   cars: Car[];
   car: Car;
   isLoadingCars: boolean;
+  filter: Filter;
 }
 
 export const initialState: CarState = {
   cars: [],
   car: new Car(),
   isLoadingCars: false,
+  filter: {
+    id: 1,
+    field: '',
+    search: '',
+    order: 'asc',
+  },
 };
 
 const _carReducer = createReducer(
@@ -62,6 +71,12 @@ const _carReducer = createReducer(
     return {
       ...state,
       isLoadingCars: isLoadingCars,
+    };
+  }),
+  on(setFilterCars, (state, { filter }) => {
+    return {
+      ...state,
+      filter: filter,
     };
   })
 );
