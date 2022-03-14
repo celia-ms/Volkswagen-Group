@@ -71,14 +71,14 @@ On the card, you could click the three dots button and bring up a menu with thre
 
 ## External libraries used
 
-* [NgRx](https://ngrx.io) for manage the application state, based on the Redux pattern.
-* [lodash](https://lodash.com) for working with arrays, numbers, objects, strings, etc.
-* [ngx-infinite-scroll](https://github.com/orizens/ngx-infinite-scroll) for create infinite scroll.
+* [NgRx](https://ngrx.io) to manage the application state, based on the Redux pattern.
+* [lodash](https://lodash.com) to working with arrays, numbers, objects, strings, etc.
+* [ngx-infinite-scroll](https://github.com/orizens/ngx-infinite-scroll) to create infinite scroll.
 
 ## UI component libraries used
-* [Material](https://material.angular.io) for create UI component infrastructure and Material Design components for mobile and desktop Angular web applications.
-* [Bootstrap utility classes](https://getbootstrap.com/docs/5.1/utilities) for showing, hiding, aligning, and spacing content.
-* [Animate.css](https://animate.style) for create animations.
+* [Material](https://material.angular.io) to create UI component infrastructure and Material Design components for mobile and desktop Angular web applications.
+* [Bootstrap utility classes](https://getbootstrap.com/docs/5.1/utilities) to showing, hiding, aligning, and spacing content.
+* [Animate.css](https://animate.style) to create animations.
 
 ## Unit and Integration testing results
 
