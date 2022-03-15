@@ -63,10 +63,6 @@ On the card, you could click the three dots button and bring up a menu with thre
 ![image](https://user-images.githubusercontent.com/6065194/158078578-9ae953d4-1420-47c0-b971-fd1d14f505f5.png) ![image](https://user-images.githubusercontent.com/6065194/158078600-d3b51196-ef9e-4258-93e2-c47af688a243.png)
 ![image](https://user-images.githubusercontent.com/6065194/158078625-9bbe333f-d892-41fb-9203-e3f8ca43a794.png) ![image](https://user-images.githubusercontent.com/6065194/158078656-87370621-f6c0-4bda-a799-deffe7c6049f.png)
 
-
-
-
-
 # Important things
 
 ## External libraries used
@@ -89,6 +85,15 @@ On the card, you could click the three dots button and bring up a menu with thre
 
 ![image](https://user-images.githubusercontent.com/6065194/158077399-b3cd0ed1-1eaf-446f-9fe0-c92b7d385eff.png)
 
+# Pending things
+## Input component
+This effect, of the double line in the input component, is a bug in the [Material component](https://material.angular.io/components/form-field/examples).
+
+![image](https://user-images.githubusercontent.com/6065194/158320557-af8b8f47-f21d-46f9-b19d-7e406f3a6246.png)![image](https://user-images.githubusercontent.com/6065194/158320197-ddd8aa8e-f015-462b-9e4e-45154bf85dab.png)
+
+I wanted to investigate to solve it, but due to lack of time I couldn't.
+## Snapshot Test 
+I wanted to do some snapshot test with Jest to create a snapshot and then verify UI changes in the components, but due to lack of time I couldn't.
 
 # Running application
 
@@ -110,7 +115,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Run `ng build` or `npm build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
 ## Running unit tests
 
