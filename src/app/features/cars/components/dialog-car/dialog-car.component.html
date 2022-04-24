@@ -1,4 +1,4 @@
-<app-dialog #dialog [config]="dialogConfig" (confirmClick)="saveCar()" (cancelClick)="close()" (closeClick)="close()">
+<app-dialog #dialog (confirmClick)="saveCar()" (cancelClick)="close()" (closeClick)="close()">
     <div content class="w-100 h-100">
         <app-form-car #formCar [action]=action></app-form-car>
     </div>

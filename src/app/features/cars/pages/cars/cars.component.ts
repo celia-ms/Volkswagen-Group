@@ -4,6 +4,8 @@ import {
   OnDestroy,
   OnInit,
   ViewChild,
+  ComponentFactoryResolver,
+  ViewContainerRef,
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
@@ -26,6 +28,7 @@ import * as carSelector from 'src/app/features/cars/store/car.selector';
 import { actions } from 'src/app/constants/constants';
 import { DialogConfig } from 'src/app/core/models/dialog-config.model';
 import { setFilterCars } from '../../store/car.actions';
+import { DialogCarComponent } from '../../components/dialog-car/dialog-car.component';
 @Component({
   selector: 'app-car',
   templateUrl: './cars.component.html',
@@ -37,7 +40,10 @@ export class CarsComponent implements OnInit, OnDestroy {
 
   subscriptions = new Subscription();
 
-  @ViewChild('dialogCar', { static: true }) dialogCar: any;
+  // TODO Create dynamic modal component with ComponentFactoryResolver
+  @ViewChild('dialogCar', { read: ViewContainerRef })
+  dialogCar!: ViewContainerRef;
+
   @ViewChild('dialogDelete', { static: true }) dialogDelete: any;
 
   cars: Car[] = [];
@@ -112,6 +118,7 @@ export class CarsComponent implements OnInit, OnDestroy {
   };
 
   constructor(
+    private componentFactoryResolver: ComponentFactoryResolver,
     private router: Router,
     private snackBarService: SnackBarService,
     private store: Store<AppState>,
@@ -212,8 +219,18 @@ export class CarsComponent implements OnInit, OnDestroy {
     this.openDialogDelete();
   }
 
+  // TODO Create dynamic modal component with ComponentFactoryResolver
   openDialog(action: number) {
-    this.dialogCar.open(action);
+    const componentFactory =
+      this.componentFactoryResolver.resolveComponentFactory(DialogCarComponent);
+    const component = this.dialogCar.createComponent(componentFactory);
+    component.instance.open(action);
+    component.instance.confirmClick.subscribe(() => {
+      this.getCars();
+    });
+    component.instance.closeClick.subscribe(() => {
+      this.dialogCar.clear();
+    });
   }
 
   openDialogDelete() {

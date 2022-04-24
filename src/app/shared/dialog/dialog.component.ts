@@ -32,7 +32,8 @@ export class DialogComponent {
 
   constructor(public matDialog: MatDialog) {}
 
-  open(): void {
+  open(config?: DialogConfig): void {
+    if (config) this.config = config;
     this.dialogRef = this.matDialog.open(this.dialog, {
       width: this.config.width,
       height: this.config.height,

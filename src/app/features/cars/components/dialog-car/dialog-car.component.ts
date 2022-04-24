@@ -64,7 +64,7 @@ export class DialogCarComponent implements OnInit {
         this.dialogConfig.showConfirmButton = true;
         break;
     }
-    this.dialog.open();
+    this.dialog.open(this.dialogConfig);
   }
 
   saveCar() {
